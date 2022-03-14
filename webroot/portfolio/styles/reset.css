@@ -21,4 +21,5 @@ ul, ol {
 a {
   color: inherit;
   text-decoration: inherit;
+  cursor: pointer;
 }

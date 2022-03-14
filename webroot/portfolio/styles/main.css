@@ -87,7 +87,11 @@ body {
 
 .hero {
   min-height: 100vh;
-  background:  linear-gradient(135deg, hsl(202, 80%, 20%, 80%), hsl(202, 80%, 8%, 80%)), url(../assets/images/hero.jpg);
+  /* overlay a gradient over a background image */
+  background: linear-gradient(135deg,
+      hsl(202, 80%, 20%, 80%),
+      hsl(202, 80%, 8%, 80%)),
+    url(../assets/images/hero.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,8 +99,12 @@ body {
   color: white;
   display: grid;
   justify-items: center;
+  align-items: start;
+  gap: 1.5rem;
   text-align: center;
 }
+
+/* MAIN TITLES */
 
 .hero h1 {
   font-size: 5rem;
@@ -107,7 +115,6 @@ body {
 .hero .title {
   display: grid;
   gap: 1rem;
-  align-self: start;
 }
 
 .hero .subtitle {
@@ -116,6 +123,38 @@ body {
   font-size: 2rem;
   font-style: italic;
 }
+
+/* SOCIAL ICONS */
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 0.2rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
+  line-height: 0; /* removes extra visible whitespace */
+}
+
+.social-icon:hover {
+  opacity: 1;
+}
+
+.social-icon img {
+  /* style used to color svg generated at: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(96%) sepia(6%) saturate(99%) hue-rotate(103deg) brightness(112%) contrast(73%);
+  width: 2.5rem;
+}
+
+.social-icon img[src*="linkedin"] {
+  padding: 0.1rem;
+}
+
+/* SCROLL PROMPT */
 
 .scroll-prompt {
   align-self: end;
@@ -137,6 +176,10 @@ body {
   opacity: 0.5;
   transition: opacity 0.3s ease-out;
 }
+
+/* ABOUT SECTION */
+
+/* DESKTOP STYLES */
 
 @media (min-width: 1076px) {
   .header {
