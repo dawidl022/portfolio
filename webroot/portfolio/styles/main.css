@@ -6,9 +6,13 @@
   --cta-color: #38BDF8;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   /* TODO choose a google font */
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .basic-link:hover {
@@ -29,6 +33,9 @@ body {
   color: var(--white);
   padding: 1.5rem;
   gap: 3rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .header .start {
@@ -38,7 +45,7 @@ body {
 
 .header .logo {
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .header .links {
@@ -76,7 +83,62 @@ body {
   background-color: var(--cta-color);
 }
 
-@media (min-width: 1150px) {
+/* HOMEPAGE STYLES */
+
+.hero {
+  min-height: 100vh;
+  background:  linear-gradient(135deg, hsl(202, 80%, 20%, 80%), hsl(202, 80%, 8%, 80%)), url(../assets/images/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 35vh;
+  color: white;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.hero .title {
+  display: grid;
+  gap: 1rem;
+  align-self: start;
+}
+
+.hero .subtitle {
+  color: #ddd;
+  font-weight: 300;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.scroll-prompt {
+  align-self: end;
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.scroll-prompt:hover img {
+  opacity: 1;
+}
+
+.scroll-prompt img {
+  width: 10rem;
+  height: auto;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-out;
+}
+
+@media (min-width: 1076px) {
   .header {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -98,5 +160,15 @@ body {
 
   .header .links {
     display: contents;
+  }
+
+  .header #nav-toggle:checked ~ .links {
+    display: contents;
+  }
+}
+
+@media (min-width: 1360px) {
+  html {
+    font-size: 1.2rem;
   }
 }
