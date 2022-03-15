@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -122,6 +123,7 @@ h2 {
 .hero .title {
   display: grid;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .hero .subtitle {
