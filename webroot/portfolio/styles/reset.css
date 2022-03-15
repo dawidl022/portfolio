@@ -24,6 +24,10 @@ a {
   cursor: pointer;
 }
 
+em {
+  font-style: italic;
+}
+
 input {
   outline: none;
 }

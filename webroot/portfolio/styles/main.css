@@ -14,6 +14,7 @@ body {
   /* TODO choose a google font */
   font-family: 'Lato', sans-serif;
   background-color: var(--white);
+  line-height: 1.5;
 }
 
 h2 {
@@ -206,6 +207,7 @@ h2 {
 .media {
   display: grid;
   justify-items: center;
+  gap: 2rem;
 }
 
 .media .copy {
@@ -268,10 +270,6 @@ h2 {
   order: -1;
 }
 
-.media.skill {
-  gap: 2rem;
-}
-
 /* LOGIN PAGE */
 
 .login .container {
@@ -296,6 +294,32 @@ h2 {
 .login-form input {
   padding: 0.4rem 1rem;
   border-radius: 2px;
+}
+
+/* EDUCATION PAGE */
+
+.rounded-logo {
+  border-radius: 50%;
+}
+
+.subjects {
+  display: grid;
+  gap: 1rem;
+}
+
+.subjects h3 {
+  font-size: 1.2rem;
+}
+
+.subjects ul {
+  list-style-type: circle;
+  margin-left: 1rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.subjects li {
+  padding-left: 0.4rem;
 }
 
 /* DESKTOP STYLES */
