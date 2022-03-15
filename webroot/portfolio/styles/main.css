@@ -13,6 +13,11 @@ html {
 body {
   /* TODO choose a google font */
   font-family: 'Lato', sans-serif;
+  background-color: var(--white);
+}
+
+h2 {
+  text-align: center;
 }
 
 .basic-link:hover {
@@ -178,26 +183,43 @@ body {
   transition: opacity 0.3s ease-out;
 }
 
-/* ABOUT SECTION */
+/* GENERAL CONTENT STYLES */
 
 .section {
-  padding: 1rem;
-  padding-top: 6rem;
+  margin: 1rem;
+  margin-top: 6rem;
   position: relative;
-  background-color: var(--white);
 }
 
 .circuit-icon {
-  width: 7rem;
+  width: clamp(3rem, 10vw, 7rem);
   position: absolute;
   filter: invert(59%) sepia(66%) saturate(677%) hue-rotate(167deg) brightness(100%) contrast(95%);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
-.about .container {
+.container {
   display: grid;
-  height: 100%;
   justify-content: center;
+}
+
+.media {
+  display: grid;
+  justify-items: center;
+}
+
+.media .copy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.media img {
+  max-width: 6rem;
+}
+
+/* ABOUT SECTION */
+
+.about .container {
   align-content: center;
   min-height: calc(100vh - 7rem);
 }
@@ -205,25 +227,49 @@ body {
 .about h2 {
   font-weight: bold;
   font-size: 2rem;
-  text-align: center;
 }
 
-.about .content {
+.content {
   max-width: 60rem;
-}
-
-.about .media {
+  position: relative;
   display: grid;
-  justify-items: center;
-}
-
-.about .media .copy {
-  display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .about .media img {
   max-width: 20rem;
+}
+
+/* SUBPAGE STYLES */
+
+.sub-page .content {
+  padding: 3rem 0;
+}
+
+.sub-page h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sub-page h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* SKILLS PAGE */
+
+.skills {
+  display: grid;
+  gap: 3rem;
+}
+
+.skill img {
+  order: -1;
+}
+
+.media.skill {
+  gap: 2rem;
 }
 
 /* DESKTOP STYLES */
@@ -256,13 +302,17 @@ body {
     display: contents;
   }
 
-  .about h2 {
+  h2 {
     text-align: left;
   }
 
-  .about .media {
+  .media {
     grid-template-columns: 1fr auto;
     align-items: center;
+  }
+
+  .skill:nth-child(2n + 1) img {
+    order: 0;
   }
 }
 
