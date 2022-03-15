@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- _head.html START -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/main.css">
+    <!-- _head.html END -->
+
+  <title>Dawid Lachowicz - Personal Homepage</title>
+  <!-- TODO fill in -->
+  <meta name="description" content="">
+</head>
+<body>
+  <!-- _header.html START -->
+  <header class="header">
+    <div class="start">
+      <div class="logo"><a href="index.html">Dawid Lachowicz</a></div>
+      <label for="nav-toggle" class="mobile toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="toggle-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </label>
+    </div>
+    <input type="checkbox" name="nav-toggle" id="nav-toggle" class="hidden">
+    <div class="links">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="index.html#about-me">About me</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="panel">
+        <a href="login.html" class="login-btn">Log in</a>
+      </div>
+    </div>
+  </header>
+  <!-- _header.html END -->
+
+  <main class="login section">
+    <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+    <div class="container">
+
+      <div class="form-wrapper">
+        <form action="#" class="login-form">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email" placeholder="Email">
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+          </div>
+
+          <button class="login-btn">Log in</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

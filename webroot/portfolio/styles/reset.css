@@ -23,3 +23,13 @@ a {
   text-decoration: inherit;
   cursor: pointer;
 }
+
+input {
+  outline: none;
+}
+
+button {
+  color: inherit;
+  background-color: inherit;
+  cursor: pointer;
+}
