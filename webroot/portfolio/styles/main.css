@@ -204,6 +204,8 @@ h2 {
 .container {
   display: grid;
   justify-content: center;
+  justify-items: center;
+  gap: 3rem;
 }
 
 .media {
@@ -241,7 +243,58 @@ h2 {
 }
 
 .about .media img {
-  max-width: 20rem;
+  max-width: 12rem;
+}
+
+/* ASIDE STYLES */
+
+.aside {
+  font-size: 0.8rem;
+}
+
+.aside h2 {
+  font-size: 1.2rem;
+}
+
+/* BLOG ASIDE */
+
+.blog-aside {
+  border: 3px solid var(--cta-color);
+  border-radius: 7px;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem
+}
+
+.blog-aside .post:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.blog-aside .post h3 {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.blog-aside .post a {
+  color: #075985;
+}
+
+.blog-aside .post h3 a:hover {
+  text-decoration: underline;
+}
+
+.blog-aside .post .info {
+  font-style: italic;
+  padding-bottom: 0.3rem;
+}
+
+.blog-aside .read-btn {
+  margin-top: 0.5rem;
+}
+
+.blog-aside .read-btn:hover {
+  color: white;
 }
 
 /* SUBPAGE STYLES */
@@ -358,6 +411,10 @@ h2 {
     text-align: left;
   }
 
+  .container {
+    padding: 0 3rem;
+  }
+
   .media {
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -371,6 +428,11 @@ h2 {
 @media (min-width: 1360px) {
   html {
     font-size: 1.2rem;
+  }
+
+  .about .container {
+    grid-template-columns: auto 20rem;
+    justify-content: space-around;
   }
 }
 
