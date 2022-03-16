@@ -197,6 +197,7 @@ h2 {
 .circuit-icon {
   width: clamp(3rem, 10vw, 7rem);
   position: absolute;
+  /* style used to color svg generated at: https://codepen.io/sosuke/pen/Pjoqqp */
   filter: invert(59%) sepia(66%) saturate(677%) hue-rotate(167deg) brightness(100%) contrast(95%);
   opacity: 0.3;
 }
@@ -377,6 +378,48 @@ h2 {
   padding-left: 0.4rem;
 }
 
+/* CONTACT PAGE */
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1rem;
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-align: center;
+  text-shadow: rgba(19, 19, 19, 0.4) 0.5px 0.5px;
+  transition: transform 0.4s ease-out;
+  padding: 1rem;
+}
+
+.email-contact {
+  flex-direction: column;
+  gap: 0;
+}
+
+.email-contact .inner {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.contact:hover {
+  transform: translateY(-9%);
+}
+
+.contact img {
+  width: 3rem;
+  /* style used to color svg generated at: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(20%) sepia(16%) saturate(6424%) hue-rotate(178deg) brightness(92%) contrast(91%);
+}
+
 /* DESKTOP STYLES */
 
 @media (min-width: 1076px) {
@@ -422,6 +465,11 @@ h2 {
 
   .skill:nth-child(2n + 1) img {
     order: 0;
+  }
+
+  .email-contact {
+    flex-direction: row;
+    gap: 0.7rem;
   }
 }
 
