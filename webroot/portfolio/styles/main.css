@@ -334,7 +334,7 @@ h2 {
   background-color: var(--main-color);
   margin: 0 auto;
   color: var(--white);
-  padding: 4rem;
+  padding: 2rem;
   display: grid;
   gap: 1.5rem;
 }
@@ -533,6 +533,10 @@ h2 {
   .email-contact {
     flex-direction: row;
     gap: 0.7rem;
+  }
+
+  .login-form {
+    padding: 4rem;
   }
 }
 
