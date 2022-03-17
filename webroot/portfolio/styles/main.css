@@ -451,17 +451,24 @@ h2 {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+.project a, .project a figcaption {
   transition: color 0.2s ease-out;
 }
 
-.project a:hover figcaption {
+/* inner figcaption selected to fix performance issues in Firefox */
+.project a:hover figcaption, .project a:hover {
   color: var(--cta-color);
 }
 
-.project figcaption .icon {
-  font-size: 2rem;
+.project .icon {
+  font-size: 1.6em;
 }
 
+.project .icon::before {
+  margin-left: 0;
+}
 
 .project .screenshot {
   aspect-ratio: 1 / 1;
