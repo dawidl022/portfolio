@@ -22,10 +22,6 @@ h2 {
   text-align: center;
 }
 
-.basic-link:hover {
-  text-decoration: none;
-}
-
 .hidden {
   width: 0;
   height: 0;
@@ -260,6 +256,7 @@ h2 {
 /* BLOG ASIDE */
 
 .blog-aside {
+  /* use as include in SCSS */
   border: 3px solid var(--cta-color);
   border-radius: 7px;
   padding: 1rem;
@@ -418,6 +415,72 @@ h2 {
   width: 3rem;
   /* style used to color svg generated at: https://codepen.io/sosuke/pen/Pjoqqp */
   filter: invert(20%) sepia(16%) saturate(6424%) hue-rotate(178deg) brightness(92%) contrast(91%);
+}
+
+/* PORTFOLIO PAGE */
+
+.portfolio .container {
+  padding-bottom: 3rem;
+}
+
+.portfolio .content {
+  padding-bottom: 0;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 3rem;
+}
+
+.project {
+  display: grid;
+  gap: 1rem;
+  border: 3px solid var(--cta-color);
+  border-radius: 7px;
+  padding: 1rem;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.project:hover {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project figcaption {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  transition: color 0.2s ease-out;
+}
+
+.project a:hover figcaption {
+  color: var(--cta-color);
+}
+
+.project figcaption .icon {
+  font-size: 2rem;
+}
+
+
+.project .screenshot {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 5px;
+}
+
+.project .tech-stack {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project .tech-stack img {
+  min-width: 0;
+  max-width: 3rem;
 }
 
 /* DESKTOP STYLES */

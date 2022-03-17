@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- _head.html START -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fonts/github-icon/css/github.css">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/main.css">
+    <!-- _head.html END -->
+
+  <title>Dawid Lachowicz - Skills</title>
+  <!-- TODO fill in -->
+  <meta name="description" content="">
+</head>
+<body>
+  <!-- _header.html START -->
+  <header class="header">
+    <div class="start">
+      <div class="logo"><a href="index.html">Dawid Lachowicz</a></div>
+      <label for="nav-toggle" class="mobile toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="toggle-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </label>
+    </div>
+    <input type="checkbox" name="nav-toggle" id="nav-toggle" class="hidden">
+    <div class="links">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="index.html#about-me">About me</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="panel">
+        <a href="login.html" class="login-btn">Log in</a>
+      </div>
+    </div>
+  </header>
+  <!-- _header.html END -->
+
+  <main class="sub-page">
+    <section class="section portfolio">
+      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+
+      <div class="container">
+        <div class="content">
+          <h1>Portfolio</h1>
+        </div>
+
+        <!-- TODO add links to tech stack -->
+        <div class="projects-container">
+          <article class="project">
+            <div class="description">
+              <a href="https://github.com/dawidl022/acclimate-app">
+                <figure>
+                  <img src="assets/images/projects/accliamte.png"
+                    alt="Screenshot of Acclimate app" class="screenshot">
+                  <figcaption>
+                    <h2>Acclimate App</h2>
+                    <i class="icon-github-circled icon"></i>
+                  </figcaption>
+                </figure>
+              </a>
+              <blockquote cite="https://github.com/dawidl022/acclimate-app#readme">
+                The app prototype helps users make informed decisions about their
+                buying habits, by providing them with environmental metrics along
+                with an overall environmental-friendly rating for companies from
+                the different retails sectors. The scores come with a map view, so
+                that the user can easily locate a store close to them, which
+                includes color coded markers to make the ratings easier to
+                distinguish.
+              </blockquote>
+            </div>
+
+            <div class="tech-stack">
+              <img src="assets/devicons/html5-original.svg" alt="HTML5">
+              <img src="assets/icons/sass.svg" alt="SCSS">
+              <img src="assets/devicons/javascript-original.svg" alt="JavaScript">
+              <img src="assets/devicons/ruby-original.svg" alt="Ruby">
+              <img src="assets/devicons/rails-original-wordmark.svg" alt="Ruby on Rails">
+              <img src="assets/devicons/heroku-original.svg" alt="Heroku">
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="description">
+              <a href="https://github.com/dawidl022/healthy-change">
+                <figure>
+                  <img src="assets/images/projects/healthy-change.jpg"
+                    alt="Screenshot of Healthy Change App" class="screenshot">
+                  <figcaption>
+                    <h2>Healthy Change</h2>
+                    <i class="icon-github-circled icon"></i>
+                  </figcaption>
+                </figure>
+              </a>
+              <blockquote cite="https://github.com/dawidl022/healthy-change#readme">
+                The application allows you to record your health and food
+                activities such as exercise, meals and water consumption. It is
+                also possible to obtain information about a given food product
+                (nutrients). All this is calculated and analysed by the program,
+                which displays indicators (caloric balance and body hydration) and
+                prompts for the user. All this in a clean, clean and aesthetic
+                interface.
+              </blockquote>
+            </div>
+
+            <div class="tech-stack">
+              <img src="assets/devicons/python-original.svg" alt="Python">
+              <img src="assets/icons/kivy.png" alt="Kivy">
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="description">
+              <a href="https://github.com/dawidl022/top-rb-chess">
+                <figure>
+                  <img src="assets/images/projects/cli-chess.png"
+                    alt="Screenshot of Command-line Chess" class="screenshot">
+                  <figcaption>
+                    <h2>Command-line Chess</h2>
+                    <i class="icon-github-circled icon"></i>
+                  </figcaption>
+                </figure>
+              </a>
+              <blockquote cite="https://github.com/dawidl022/top-rb-chess#readme">
+                Two-player command line chess game. The players control their
+                pieces by typing in chess notation at the prompt. The game logic
+                was built using TDD.
+              </blockquote>
+            </div>
+
+            <div class="tech-stack">
+              <img src="assets/devicons/ruby-original.svg" alt="Ruby">
+              <img src="assets/devicons/rspec.svg" alt="RSpec">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
