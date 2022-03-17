@@ -479,8 +479,16 @@ h2 {
 }
 
 .project .tech-stack img {
-  min-width: 0;
-  max-width: 3rem;
+  width: 3rem;
+}
+
+.project .tech-stack a {
+  transition: transform 0.2s ease-out;
+}
+
+.project .tech-stack a:hover {
+  /* transform: translateY(-9%); */
+  transform: scale(1.1);
 }
 
 /* DESKTOP STYLES */
