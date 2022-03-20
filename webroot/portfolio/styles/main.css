@@ -303,10 +303,12 @@ h2 {
 
 .blog-aside .read-btn {
   margin-top: 0.5rem;
+  background-color: #fff;
 }
 
 .blog-aside .read-btn:hover {
   color: white;
+  background-color: var(--cta-color);
 }
 
 /* SUBPAGE STYLES */
