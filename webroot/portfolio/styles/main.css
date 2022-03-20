@@ -217,7 +217,20 @@ h2 {
 }
 
 .media img {
-  max-width: 6rem;
+  width: 6rem;
+}
+
+/* LIST STYLES */
+
+.bulleted-list {
+  list-style-type: circle;
+  margin-left: 1rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.bulleted-list li {
+  padding-left: 0.4rem;
 }
 
 /* ABOUT SECTION */
@@ -240,7 +253,7 @@ h2 {
 }
 
 .about .media img {
-  max-width: 12rem;
+  width: 12rem;
 }
 
 /* ASIDE STYLES */
@@ -261,7 +274,8 @@ h2 {
   border-radius: 7px;
   padding: 1rem;
   display: grid;
-  gap: 1rem
+  gap: 1rem;
+  max-width: 50rem;
 }
 
 .blog-aside .post:not(:last-child) {
@@ -362,17 +376,6 @@ h2 {
 
 .subjects h3 {
   font-size: 1.2rem;
-}
-
-.subjects ul {
-  list-style-type: circle;
-  margin-left: 1rem;
-  display: grid;
-  gap: 0.3rem;
-}
-
-.subjects li {
-  padding-left: 0.4rem;
 }
 
 /* CONTACT PAGE */
@@ -498,6 +501,20 @@ h2 {
   transform: scale(1.1);
 }
 
+/* EXPERIENCE PAGE */
+
+.experience .content {
+  gap: 4rem;
+}
+
+.experience .rounded-logo {
+  border: 4px solid var(--cta-color);
+  padding: 0.5rem;
+  width: 8rem;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
 /* DESKTOP STYLES */
 
 @media (min-width: 1076px) {
@@ -539,6 +556,7 @@ h2 {
   .media {
     grid-template-columns: 1fr auto;
     align-items: center;
+    justify-items: initial;
   }
 
   .skill:nth-child(2n + 1) img {
