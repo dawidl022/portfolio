@@ -186,7 +186,7 @@ h2 {
 
 .section {
   margin: 1rem;
-  margin-top: 6rem;
+  margin-top: 7rem;
   position: relative;
 }
 
@@ -237,7 +237,7 @@ h2 {
 
 .about .container, .login .container {
   align-content: center;
-  min-height: calc(100vh - 7rem);
+  min-height: calc(100vh - 8rem);
 }
 
 .about h2 {
@@ -345,25 +345,67 @@ h2 {
   justify-content: stretch;
 }
 
-.login-form {
+/* BOXED FORM STYLES */
+
+.box-form {
   max-width: 90vw;
   width: 30rem;
   background-color: var(--main-color);
   margin: 0 auto;
   color: var(--white);
   padding: 2rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.login-form .field {
-  display: grid;
+.box-form .field {
+  display: flex;
+  flex-direction: column;
   gap: 0.2rem;
 }
 
-.login-form input {
+.box-form input, .box-form textarea {
   padding: 0.4rem 1rem;
   border-radius: 2px;
+}
+
+/* ADD POST PAGE */
+
+.add-post .container {
+  grid-template-rows: calc(100vh - 8rem);
+}
+
+.add-post .box-form {
+  min-height: 100%;
+  max-width: 97vw;
+  width: 60rem;
+}
+
+.add-post .box-form .buttons {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 1rem;
+}
+
+.add-post .big-field {
+  flex: 1;
+}
+
+.add-post .clear-btn {
+  --red: #f83838;
+
+  border-color: var(--red);
+}
+
+.add-post .clear-btn:hover {
+  background-color: var(--red);
+}
+
+.add-post .box-form textarea {
+  resize: none;
+  height: auto;
+  flex: 1
 }
 
 /* EDUCATION PAGE */
