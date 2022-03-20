@@ -346,7 +346,8 @@ h2 {
 }
 
 .login-form {
-  max-width: 30rem;
+  max-width: 90vw;
+  width: 30rem;
   background-color: var(--main-color);
   margin: 0 auto;
   color: var(--white);
