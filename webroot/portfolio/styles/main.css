@@ -515,6 +515,14 @@ h2 {
   object-fit: contain;
 }
 
+.experience h2 {
+  text-align: left;
+}
+
+.experience header {
+  justify-self: center;
+}
+
 /* DESKTOP STYLES */
 
 @media (min-width: 1076px) {
@@ -559,6 +567,10 @@ h2 {
     justify-items: initial;
   }
 
+  .skill:nth-child(2n) {
+    grid-template-columns: auto 1fr;
+  }
+
   .skill:nth-child(2n + 1) img {
     order: 0;
   }
@@ -570,6 +582,10 @@ h2 {
 
   .login-form {
     padding: 4rem;
+  }
+
+  .experience header {
+    justify-self: initial;
   }
 }
 
