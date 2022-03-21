@@ -28,7 +28,7 @@ em {
   font-style: italic;
 }
 
-input {
+input, textarea {
   outline: none;
 }
 

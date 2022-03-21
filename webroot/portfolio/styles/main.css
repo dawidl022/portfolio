@@ -571,6 +571,10 @@ h2 {
 
 /* BLOG INDEX STYLES */
 
+.blog .content {
+  max-width: 52rem;
+}
+
 .blog h1 {
   padding: 3rem 0 1rem;
 }
@@ -582,6 +586,36 @@ h2 {
 .blog .add-btn {
   font-size: 1.2rem;
   text-align: center;
+}
+
+.blog .post {
+  display: grid;
+}
+
+.blog .post h2 {
+  color: var(--main-color);
+}
+
+.blog .post header {
+  justify-self: center;
+}
+
+.blog .post .body {
+  margin-top: 1rem;
+}
+
+.blog .post .info {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.blog .post:not(:last-child) {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.blog p:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 /* DESKTOP STYLES */
@@ -648,6 +682,10 @@ h2 {
   .experience header {
     justify-self: initial;
   }
+
+  .blog .post header {
+    justify-self: initial;
+  }
 }
 
 @media (min-width: 1360px) {
@@ -666,6 +704,7 @@ h2 {
 
   .blog .container {
     grid-template-columns: 20rem 1fr;
+    align-items: start;
   }
 }
 
