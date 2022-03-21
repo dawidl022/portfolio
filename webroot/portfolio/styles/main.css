@@ -369,6 +369,12 @@ h2 {
 .box-form input, .box-form textarea {
   padding: 0.4rem 1rem;
   border-radius: 2px;
+  transition: outline-color 0.2s ease-out;
+  outline: 2px solid transparent;
+}
+
+.box-form input:focus, .box-form textarea:focus {
+  outline-color: var(--cta-color);
 }
 
 /* ADD POST PAGE */
