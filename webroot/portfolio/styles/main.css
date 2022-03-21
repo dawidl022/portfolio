@@ -1,3 +1,5 @@
+/* STYLE RULES ARE MOBILE FIRST */
+
 /* GLOBAL STYLES */
 
 :root {
@@ -12,7 +14,6 @@ html {
 }
 
 body {
-  /* TODO choose a google font */
   font-family: 'Lato', sans-serif;
   background-color: var(--white);
   line-height: 1.5;
@@ -45,11 +46,17 @@ h2 {
 .header .start {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header .logo {
   font-weight: 900;
   font-size: 1.7rem;
+}
+
+.header .toggle {
+  line-height: 0;
+  cursor: pointer;
 }
 
 .header .links {
@@ -411,7 +418,6 @@ h2 {
 
 .add-post .box-form textarea {
   resize: none;
-  height: auto;
   flex: 1
 }
 
