@@ -17,6 +17,14 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: var(--white);
   line-height: 1.5;
+  /* used to make footer always at the bottom */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 h2 {
@@ -242,9 +250,9 @@ h2 {
 
 /* ABOUT SECTION */
 
-.about .container, .login .container {
+.about .container {
   align-content: center;
-  min-height: calc(100vh - 8rem);
+  min-height: calc(100vh - 7rem);
 }
 
 .about h2 {
@@ -351,6 +359,8 @@ h2 {
 
 .login .container {
   justify-content: stretch;
+  align-content: center;
+  min-height: calc(100vh - 8rem);
 }
 
 /* BOXED FORM STYLES */
@@ -632,6 +642,26 @@ h2 {
 
 .blog p:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+/* FOOTER STYLES */
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: var(--main-color);
+  color: var(--white);
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: underline;
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.footer-icon {
+  /* style used to color svg generated at: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(100%) sepia(73%) saturate(1307%) hue-rotate(177deg) brightness(105%) contrast(101%);
 }
 
 /* DESKTOP STYLES */
