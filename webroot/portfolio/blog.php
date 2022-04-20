@@ -19,7 +19,7 @@
           <div>
             <em>Number of posts: 2</em>
           </div>
-          <a href="add-entry" class="login-btn read-btn add-btn">New post</a>
+          <a href="add-post" class="login-btn read-btn add-btn">New post</a>
         </aside>
         <div class="content">
 
