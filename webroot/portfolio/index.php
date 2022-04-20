@@ -67,7 +67,7 @@ Check out my projects and work and find out how to reach out to me.">
 
           <article class="post">
             <header>
-              <h3><a href="blog.html#post2">New homepage released</a></h3>
+              <h3><a href="blog#post2">New homepage released</a></h3>
               <div class="info">
                 Posted on:
                 <time datetime="2022-03-16">3<sup>rd</sup> March 2022</time>
@@ -81,12 +81,12 @@ Check out my projects and work and find out how to reach out to me.">
               stand out for the crowd. Oh, and I do hope you like the styling,
               I tried my best :)
             </p>
-            <a href="blog.html#post2" class="login-btn read-btn">Read more</a>
+            <a href="blog#post2" class="login-btn read-btn">Read more</a>
           </article>
 
           <article class="post">
             <header>
-              <h3><a href="blog.html#post1">First blog post</a></h3>
+              <h3><a href="blog#post1">First blog post</a></h3>
               <div class="info">
                 Posted on:
                 <time datetime="2022-01-28">28<sup>th</sup> January 2022</time>
@@ -100,7 +100,7 @@ Check out my projects and work and find out how to reach out to me.">
               opportunity to work on my soft (writing) skills, as they are also
               very very important. The topics I plan to cover...
             </p>
-            <a href="blog.html#post1" class="login-btn read-btn">Read more</a>
+            <a href="blog#post1" class="login-btn read-btn">Read more</a>
           </article>
         </aside>
         </div>
