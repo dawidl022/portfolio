@@ -1,0 +1,9 @@
+# Remove extension from URL (source: https://stackoverflow.com/a/16773980/)
+
+RewriteEngine on
+# if is not directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# if is an existing php file
+RewriteCond %{REQUEST_FILENAME}\.php -f
+ # rewrite index to index.php
+RewriteRule ^(.*)$ $1.php
