@@ -28,6 +28,10 @@ em {
   font-style: italic;
 }
 
+strong {
+  font-weight: bold;
+}
+
 input, textarea {
   outline: none;
 }

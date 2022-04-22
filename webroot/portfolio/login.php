@@ -16,10 +16,20 @@
         <form action="scripts/login.php" method="post" class="box-form">
           <h1>Log in</h1>
 
+          <?php if(isset($_SESSION['error'])): ?>
+            <div class="error">
+              <strong><?= $_SESSION['error'] ?></strong>
+            </div>
+          <?php endif;
+            unset($_SESSION['error']);
+          ?>
+
           <div class="field">
             <label for="email">Email address</label>
             <input type="email" name="email" id="email" placeholder="Email"
-              required>
+              required
+              <?= isset($_SESSION['email']) ? 'value="'.$_SESSION['email'].'"' : '' ?>
+            >
           </div>
 
           <div class="field">
@@ -36,3 +46,6 @@
   </main>
 </body>
 </html>
+<?php
+  unset($_SESSION['email']);
+?>

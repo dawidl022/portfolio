@@ -391,6 +391,10 @@ h2 {
   gap: 1.5rem;
 }
 
+.box-form .error {
+  color: #ff9b51;
+}
+
 .box-form .field {
   display: flex;
   flex-direction: column;
