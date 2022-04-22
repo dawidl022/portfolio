@@ -1,3 +1,9 @@
+<?php
+  require 'classes/Validation.class.php';
+
+  // TODO redirect is user already logged in
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,19 +22,13 @@
         <form action="scripts/login.php" method="post" class="box-form">
           <h1>Log in</h1>
 
-          <?php if(isset($_SESSION['error'])): ?>
-            <div class="error">
-              <strong><?= $_SESSION['error'] ?></strong>
-            </div>
-          <?php endif;
-            unset($_SESSION['error']);
-          ?>
+          <?php require_once 'partials/_form-error.php'; ?>
 
           <div class="field">
             <label for="email">Email address</label>
             <input type="email" name="email" id="email" placeholder="Email"
               required
-              <?= isset($_SESSION['email']) ? 'value="'.$_SESSION['email'].'"' : '' ?>
+              <?= Validation::fillValue('email') ?>
             >
           </div>
 

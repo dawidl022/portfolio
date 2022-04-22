@@ -1,4 +1,6 @@
 <?php
+  require_once 'exceptions/QueryFailedException.php';
+
   class Database {
     private mysqli $conn;
 
@@ -19,12 +21,20 @@
       return $this->conn;
     }
 
-    // TODO add error checking and raise exceptions appropriately
     private function execute(string $sql, string $param_types, ...$params)
                              : mysqli_stmt {
       $query = $this->conn->prepare($sql);
+
+      if (!$query) {
+        throw new QueryFailedException();
+      }
+
       $query->bind_param($param_types, ...$params);
-      $query->execute();
+      $success = $query->execute();
+
+      if (!$success) {
+        throw new QueryFailedException();
+      }
 
       return $query;
     }

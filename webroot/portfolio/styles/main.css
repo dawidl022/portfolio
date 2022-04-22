@@ -27,6 +27,10 @@ main {
   flex: 1;
 }
 
+h1 {
+  line-height: 1.2;
+}
+
 h2 {
   text-align: center;
 }
@@ -393,6 +397,13 @@ h2 {
 
 .box-form .error {
   color: #ff9b51;
+  font-size: 1.2rem;
+}
+
+.box-form .panel {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .box-form .field {

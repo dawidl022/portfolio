@@ -15,7 +15,7 @@
 
   session_start();
 
-  if (!Validation::areNonEmpty($_POST['email'], $_POST['password'])) {
+  if (!Validation::arePostNonEmpty('email', 'password')) {
     $_SESSION['error'] = 'Please enter your email and password';
     redirect_to_login();
   }

@@ -1,3 +1,9 @@
+<?php
+  require_once 'classes/Validation.class.php';
+
+  // TODO redirect is user already logged in
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,28 +22,34 @@
         <form action="scripts/register.php" method="post" class="box-form">
           <h1>Sign up</h1>
 
+          <?php require_once 'partials/_form-error.php'; ?>
+
           <div class="field">
             <label for="name">Full name</label>
             <input type="text" name="name" id="name" placeholder="Name"
-              required>
+              required <?= Validation::fillValue('name') ?>>
           </div>
 
           <div class="field">
             <label for="email">Email address</label>
             <input type="email" name="email" id="email" placeholder="Email"
-              required>
+              required <?= Validation::fillValue('email') ?>>
           </div>
 
           <div class="field">
             <label for="password">Password</label>
             <input type="password" name="password" id="password"
-              placeholder="Password" required minlength="8">
+              placeholder="Password" required minlength="8"
+              <?= Validation::fillValue('password') ?>
+            >
           </div>
 
           <div class="field">
             <label for="password-repeat">Confirm password</label>
             <input type="password" name="password-repeat" id="password-repeat"
-              placeholder="Password" required minlength="8">
+              placeholder="Password" required minlength="8"
+              <?= Validation::fillValue('password-repeat') ?>
+            >
           </div>
 
           <button type="submit" class="login-btn">Sign up</button>

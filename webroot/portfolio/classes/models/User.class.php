@@ -12,6 +12,7 @@
       "SELECT name, admin, author FROM users WHERE id = ?;";
     private const AUTHENTICATE_SQL =
       "SELECT id, password_hash FROM users WHERE email = ?;";
+    private const EMAIL_SQL = 'SELECT id FROM users WHERE email = ?;';
 
     function __construct(int $id, Database $db) {
       $this->id = $id;
@@ -37,6 +38,11 @@
       }
 
       return null;
+    }
+
+    static function isEmailTaken($email, Database $db) : bool {
+      $result = $db->query(self::EMAIL_SQL, 's', $email);
+      return count($result) === 1;
     }
 
     function getName() : string {

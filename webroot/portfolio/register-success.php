@@ -16,6 +16,9 @@
         <div class="box-form">
           <h1>Signed up successfully</h1>
           <p class="center">You can now posts comments on blog posts.</p>
+          <div class="panel">
+            <a href="blog" class="login-btn">Go to blog</a>
+          </div>
         </div>
       </div>
 
