@@ -9,7 +9,7 @@
   // TODO check if email address is already taken
   // TODO check that passwords match
 
-  require_once 'db-connect.php';
+  require_once 'db-connect-or-die.php';
 
   $user = User::create($_POST['name'], $_POST['email'], $_POST['password'], $db);
   // TODO add link back to session variable and to blog index

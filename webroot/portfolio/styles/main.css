@@ -42,6 +42,10 @@ h2 {
   text-align: center;
 }
 
+.basic-link {
+  text-decoration: underline;
+}
+
 /* HEADER */
 
 .header {

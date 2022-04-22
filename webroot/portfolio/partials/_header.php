@@ -1,4 +1,5 @@
 <?php
+  $logged_in = false;
   session_start();
 
   if (isset($_SESSION['id'])) {
@@ -6,10 +7,10 @@
     require_once 'classes/models/User.class.php';
 
     // TODO handle invalid id in user class
-    $user = new User($_SESSION['id'], $db);
-    $logged_in = true;
-  } else {
-    $logged_in = false;
+    if ($db !== null) {
+      $user = new User($_SESSION['id'], $db);
+      $logged_in = true;
+    }
   }
 ?>
 
