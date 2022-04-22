@@ -20,7 +20,7 @@
       $query->bind_param('i', parent::getId());
       $query->execute();
 
-      $raw_posts =  $query->get_result()->fetch_all();
+      $raw_posts =  $query->get_result()->fetch_all(MYSQLI_BOTH);
 
       $posts = array();
       foreach ($raw_posts as $raw_post) {

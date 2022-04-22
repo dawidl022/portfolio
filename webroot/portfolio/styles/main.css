@@ -38,6 +38,10 @@ h2 {
   position: absolute;
 }
 
+.center {
+  text-align: center;
+}
+
 /* HEADER */
 
 .header {
@@ -87,6 +91,11 @@ h2 {
 
 .header .main-nav a:hover {
   text-decoration: underline;
+}
+
+.header .panel {
+  gap: 0.5rem;
+  display: flex;
 }
 
 .login-btn {
@@ -666,7 +675,7 @@ h2 {
 
 /* DESKTOP STYLES */
 
-@media (min-width: 1076px) {
+@media (min-width: 1176px) {
   .header {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -734,7 +743,7 @@ h2 {
   }
 }
 
-@media (min-width: 1360px) {
+@media (min-width: 1400px) {
   html {
     font-size: 1.2rem;
   }

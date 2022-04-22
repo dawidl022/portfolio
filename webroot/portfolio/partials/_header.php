@@ -21,6 +21,7 @@
       </ul>
     </nav>
     <div class="panel">
+      <a href="register" class="login-btn">Sign up</a>
       <a href="login" class="login-btn">Log in</a>
     </div>
   </div>
