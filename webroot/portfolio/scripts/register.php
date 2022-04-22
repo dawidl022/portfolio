@@ -45,7 +45,7 @@
     $user = User::create($_POST['name'], $_POST['email'], $_POST['password'], $db);
 
     session_start();
-    // TODO add link back through query param or referer
+    // TODO add link back through query param or referer to blog post
     $_SESSION['id'] = $user->getId();
     header("Location: ../register-success");
 

@@ -1,7 +1,5 @@
 <?php
   require_once 'classes/Validation.class.php';
-
-  // TODO redirect is user already logged in
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +10,13 @@
   <title>Dawid Lachowicz - Sign up</title>
 </head>
 <body>
-  <?php require 'partials/_header.php'; ?>
+  <?php
+    require 'partials/_header.php';
+
+    if (isset($_SESSION['id'])) {
+      header("Location: .");
+    }
+  ?>
 
   <main class="login section sub-page">
     <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">

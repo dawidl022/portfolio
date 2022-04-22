@@ -1,4 +1,14 @@
 <?php
+  if ($env === 'DEV') {
+    define('ROOT', '/home/phenda10/Learning/uni/sem1B/web-dev/labs/production/webroot/portfolio/');
+  } else if ($env = 'TEST') {
+    define('ROOT', '/portfolio/');
+  } else {
+    define('ROOT', '/');
+  }
+
+  require_once ROOT . 'classes/exceptions/UserNotFoundException.php';
+
   class User {
     private int $id;
     private string $name;
@@ -74,7 +84,14 @@
     }
 
     private function fetchData() {
-      $user_data = $this->db->query(self::GET_SQL, 'i', $this->id)[0];
+      $user_data = $this->db->query(self::GET_SQL, 'i', $this->id);
+
+      if (count($user_data) === 0) {
+        throw new UserNotFoundException();
+      } else {
+        $user_data = $user_data[0];
+      }
+
       $this->name = $user_data['name'];
       $this->admin = $user_data['admin'];
       $this->author = $user_data['author'];

@@ -6,10 +6,14 @@
     require_once 'scripts/db-connect.php';
     require_once 'classes/models/User.class.php';
 
-    // TODO handle invalid id in user class
     if ($db !== null) {
-      $user = new User($_SESSION['id'], $db);
-      $logged_in = true;
+      try {
+        $user = new User($_SESSION['id'], $db);
+        $logged_in = true;
+      } catch (UserNotFoundException $e) {
+        // no need to keep the user id in the session if it is invalid
+        unset($_SESSION['id']);
+      }
     }
   }
 ?>
@@ -39,7 +43,6 @@
     <div class="panel">
       <?php if ($logged_in): ?>
         <span><?= $user->getFirstName() ?></span>
-        <?php // TODO change login-btn to btn ?>
         <a href="logout" class="login-btn">Log out</a>
       <?php else: ?>
         <a href="register" class="login-btn">Sign up</a>
