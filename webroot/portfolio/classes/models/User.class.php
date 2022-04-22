@@ -26,7 +26,16 @@
       return new self($db->getConn()->insert_id, $db);
     }
 
-    static function authenticate($email, $password) : ?int {
+    static function authenticate($email, $password, Database $db) : ?int {
+      $result = $db->query(self::AUTHENTICATE_SQL, 's', $email);
+      if (count($result) === 1) {
+        $password_hash = $result[0]['password_hash'];
+
+        if (password_verify($password, $password_hash)) {
+          return $result[0]['id'];
+        }
+      }
+
       return null;
     }
 

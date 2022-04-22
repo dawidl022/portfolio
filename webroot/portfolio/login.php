@@ -13,7 +13,7 @@
     <div class="container">
 
       <div class="form-wrapper">
-        <form action="#" class="box-form">
+        <form action="scripts/login.php" method="post" class="box-form">
           <h1>Log in</h1>
 
           <div class="field">
