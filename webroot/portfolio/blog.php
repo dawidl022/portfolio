@@ -14,13 +14,18 @@
       <h1>Blog</h1>
 
       <div class="container">
-        <aside class="blog-aside">
-          <h2>Admin Dashboard</h2>
-          <div>
-            <em>Number of posts: 2</em>
-          </div>
-          <a href="add-post" class="login-btn read-btn add-btn">New post</a>
-        </aside>
+        <?php if ($logged_in && $user->isAuthor()): ?>
+          <aside class="blog-aside">
+            <h2><?= $user->getUserType() ?> Dashboard</h2>
+            <div>
+              <div><em>Your posts: 2</em></div>
+              <?php if ($user->isAdmin()): ?>
+                <div><em>Total number of posts: 2</em></div>
+              <?php endif; ?>
+            </div>
+            <a href="add-post" class="login-btn read-btn add-btn">New post</a>
+          </aside>
+        <?php endif; ?>
         <div class="content">
 
           <article class="post" id="post2">

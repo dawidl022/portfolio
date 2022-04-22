@@ -759,8 +759,16 @@ h2 {
   }
 
   .blog .container {
-    grid-template-columns: 20rem 1fr;
+    grid-template-columns: auto 1fr;
     align-items: start;
+  }
+
+  .blog .blog-aside {
+    width: 20rem;
+  }
+
+  .blog .content {
+    grid-column: 2;
   }
 }
 

@@ -59,6 +59,10 @@
       return $this->author || $this->admin;
     }
 
+    function getUserType() : string {
+      return $this->isAdmin() ? 'Admin' : 'Author';
+    }
+
     protected function getConn() {
       return $this->conn;
     }
