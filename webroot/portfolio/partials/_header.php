@@ -1,3 +1,18 @@
+<?php
+  session_start();
+
+  if (isset($_SESSION['id'])) {
+    require_once 'scripts/db-connect.php';
+    require_once 'classes/models/User.class.php';
+
+    // TODO handle invalid id in user class
+    $user = new User($_SESSION['id'], $db);
+    $logged_in = true;
+  } else {
+    $logged_in = false;
+  }
+?>
+
 <header class="header">
   <div class="start">
     <div class="logo"><a href=".">Dawid Lachowicz</a></div>
@@ -21,8 +36,14 @@
       </ul>
     </nav>
     <div class="panel">
-      <a href="register" class="login-btn">Sign up</a>
-      <a href="login" class="login-btn">Log in</a>
+      <?php if ($logged_in): ?>
+        <span><?= $user->getFirstName() ?></span>
+        <?php // TODO change login-btn to btn ?>
+        <a href="logout" class="login-btn">Log out</a>
+      <?php else: ?>
+        <a href="register" class="login-btn">Sign up</a>
+        <a href="login" class="login-btn">Log in</a>
+      <?php endif; ?>
     </div>
   </div>
 </header>

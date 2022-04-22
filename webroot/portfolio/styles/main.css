@@ -94,8 +94,9 @@ h2 {
 }
 
 .header .panel {
-  gap: 0.5rem;
+  gap: 1rem;
   display: flex;
+  align-items: baseline;
 }
 
 .login-btn {

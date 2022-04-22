@@ -34,6 +34,10 @@
       return $this->name;
     }
 
+    function getFirstName() : string {
+      return explode(" ", $this->name)[0];
+    }
+
     function getId() {
       return $this->id;
     }
@@ -51,9 +55,10 @@
     }
 
     private function fetchData() {
-      $this->name = "";
-      $this->admin = "";
-      $this->author = "";
+      $user_data = $this->db->query(self::GET_SQL, 'i', $this->id)[0];
+      $this->name = $user_data['name'];
+      $this->admin = $user_data['admin'];
+      $this->author = $user_data['author'];
     }
   }
 ?>

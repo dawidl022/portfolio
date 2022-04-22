@@ -3,7 +3,7 @@
   require_once '../classes/models/User.class.php';
 
   if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../register.php");
+    header("Location: ../register");
   }
   // TODO handle missing values
   // TODO check if email address is already taken
@@ -11,9 +11,10 @@
 
   require_once 'db-connect.php';
 
-  $db = connect();
-  User::create($_POST['name'], $_POST['email'], $_POST['password'], $db);
+  $user = User::create($_POST['name'], $_POST['email'], $_POST['password'], $db);
   // TODO add link back to session variable and to blog index
   // TODO only redirect to success if creation succeeded
-  header("Location: ../register-success.php");
+  session_start();
+  $_SESSION['id'] = $user->getId();
+  header("Location: ../register-success");
 ?>
