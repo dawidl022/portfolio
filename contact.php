@@ -11,7 +11,7 @@
 
   <main class="sub-page">
     <section class="section contact-info">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <div class="content">
@@ -20,16 +20,16 @@
           <div class="contacts">
             <a href="https://github.com/dawidl022" class="contact"
               target="_blank" rel="noopener">
-              <img src="assets/icons/github.svg" alt="">
+              <img src="/assets/icons/github.svg" alt="">
               GitHub
             </a>
             <a href="https://www.linkedin.com/in/dawid-k-lachowicz/"
               class="contact" target="_blank" rel="noopener">
-              <img src="assets/icons/linkedin.svg" alt="">
+              <img src="/assets/icons/linkedin.svg" alt="">
               LinedIn
             </a>
             <a href="mailto:dawid.k.lachowicz@gmail.com" class="contact email-contact">
-              <span class="inner"><img src="assets/icons/at.svg" alt=""> Email:</span>
+              <span class="inner"><img src="/assets/icons/at.svg" alt=""> Email:</span>
               <span>dawid.k.lachowicz@gmail.com</span>
             </a>
           </div>

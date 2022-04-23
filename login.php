@@ -14,12 +14,12 @@
     require 'partials/_header.php';
 
     if (isset($_SESSION['id'])) {
-      header("Location: .");
+      header("Location: /");
     }
   ?>
 
   <main class="login section sub-page">
-    <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+    <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
     <div class="container">
 
       <div class="form-wrapper">

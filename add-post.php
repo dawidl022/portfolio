@@ -16,16 +16,16 @@
     if (!isset($_SESSION['id'])) {
       $_SESSION['redirect_to'] = 'add-post';
       $_SESSION['error'] = 'Please log in to add a post';
-      header("Location: login");
+      header("Location: /login");
     }
 
     if (!$user->isAuthor()) {
-      header("Location: .");
+      header("Location: /");
     }
   ?>
 
   <main class="add-post section sub-page">
-    <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+    <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
     <div class="container">
 
       <div class="form-wrapper">

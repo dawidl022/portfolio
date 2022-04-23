@@ -5,14 +5,14 @@
   // TODO display author's name too
 
   if (!isset($_GET['permalink'])) {
-    header("Location: blog");
+    header("Location: /blog");
     exit();
   }
 
   try {
     $post = Post::fromPermalink($_GET['permalink'], $db);
   } catch (RecordNotFoundException $e) {
-    header("Location: blog");
+    header("Location: /blog");
     exit();
   }
 ?>
@@ -29,7 +29,7 @@
 
   <main class="sub-page">
     <section class="section blog">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
       <h1><?= $post->getTitle() ?></h1>
 
       <div class="container">

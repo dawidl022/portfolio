@@ -10,7 +10,7 @@
 
   <main class="sub-page">
     <section class="section education">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <div class="content">
@@ -30,7 +30,7 @@
               </div>
             </div>
             <a href="https://www.qmul.ac.uk/" target="_blank" rel="noopener">
-              <img src="assets/images/qmul.png" alt="Queen Mary University of London logo"
+              <img src="/assets/images/qmul.png" alt="Queen Mary University of London logo"
                 class="rounded-logo">
             </a>
           </div>

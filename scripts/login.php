@@ -1,10 +1,10 @@
 <?php
-  require_once 'show-errors.php';
-  require_once '../classes/models/User.class.php';
-  require_once '../classes/Validation.class.php';
+  require_once 'scripts/show-errors.php';
+  require_once 'classes/models/User.class.php';
+  require_once 'classes/Validation.class.php';
 
   function redirect_to_login() {
-    header("Location: ../login");
+    header("Location: /login");
     exit();
   }
 
@@ -29,11 +29,11 @@
 
     $redirect_to = isset($_SESSION['redirect_to']) ? $_SESSION['redirect_to']
                                                    : '';
-    header("Location: ../$redirect_to");
+    header("Location: /$redirect_to");
   } else {
     $_SESSION['error'] = 'Invalid email address or password';
     $_SESSION['email'] = $_POST['email'];
 
-    header("Location: ../login");
+    header("Location: /login");
   }
 ?>

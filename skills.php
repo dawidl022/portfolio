@@ -10,7 +10,7 @@
 
   <main class="sub-page">
     <section class="section skills">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <div class="content">
@@ -31,7 +31,7 @@
                   I develop modular web components using the Vue.js framework.
                 </p>
               </div>
-              <img src="assets/images/coding.svg" alt="">
+              <img src="/assets/images/coding.svg" alt="">
             </div>
 
             <div class="media skill">
@@ -46,7 +46,7 @@
                   routine is "Eat That Frog!" by Brain Tracy.
                 </p>
               </div>
-              <img src="assets/images/watch.svg" alt="">
+              <img src="/assets/images/watch.svg" alt="">
             </div>
 
             <div class="media skill">
@@ -61,7 +61,7 @@
                   before.
                 </p>
               </div>
-              <img src="assets/images/user-cog.svg" alt="">
+              <img src="/assets/images/user-cog.svg" alt="">
             </div>
 
             <div class="media skill">
@@ -77,7 +77,7 @@
                   art of communication.
                 </p>
               </div>
-              <img src="assets/images/light-bulb.svg" alt="">
+              <img src="/assets/images/light-bulb.svg" alt="">
             </div>
 
           </div>

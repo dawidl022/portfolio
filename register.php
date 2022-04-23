@@ -14,16 +14,16 @@
     require 'partials/_header.php';
 
     if (isset($_SESSION['id'])) {
-      header("Location: .");
+      header("Location: /");
     }
   ?>
 
   <main class="login section sub-page">
-    <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+    <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
     <div class="container">
 
       <div class="form-wrapper">
-        <form action="scripts/register.php" method="post" class="box-form">
+        <form action="/scripts/register.php" method="post" class="box-form">
           <h1>Sign up</h1>
 
           <?php require_once 'partials/_form-error.php'; ?>

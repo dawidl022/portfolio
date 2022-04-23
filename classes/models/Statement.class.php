@@ -1,5 +1,5 @@
 <?php
-  require_once '../classes/exceptions/ImmutablePropertyException.php';
+  require_once 'classes/exceptions/ImmutablePropertyException.php';
 
   abstract class Statement {
     private ?int $id;

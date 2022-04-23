@@ -1,13 +1,13 @@
 <?php
-  require_once 'db-connect-or-die.php';
-  require_once '../classes/models/Author.class.php';
-  require_once '../classes/models/Post.class.php';
-  require_once '../classes/Validation.class.php';
+  require_once 'scripts/db-connect-or-die.php';
+  require_once 'classes/models/Author.class.php';
+  require_once 'classes/models/Post.class.php';
+  require_once 'classes/Validation.class.php';
 
   define('ALL_PARAMS', ['title', 'content']);
 
   function redirect_to_add_post() {
-    header("Location: ../add-post");
+    header("Location: /add-post");
     exit();
   }
 
@@ -29,13 +29,13 @@
     $_SESSION['error'] = 'Please log in to add a post';
 
     save_all_input_to_session();
-    header("Location: login");
+    header("Location: /login");
   }
 
   $author = new Author($_SESSION['id'], $db);
 
   if (!$author->isAuthor()) {
-    header('Location: ../');
+    header('Location: /');
   }
 
   $post = Post::create($_POST['title'], $_POST['content'], $author, $db);
@@ -45,7 +45,7 @@
       // TODO add flash message
       unset($_SESSION['title']);
       unset($_SESSION['content']);
-      header("Location: ../blog/{$post->getPermalink()}");
+      header("Location: /blog/{$post->getPermalink()}");
       exit();
     } catch (QueryFailedException $e) {
       $_SESSION['error'] = 'Server was unable to add your post';

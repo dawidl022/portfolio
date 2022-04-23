@@ -1,7 +1,7 @@
 <?php
-  require_once '../classes/exceptions/NotValidException.php';
-  require_once '../classes/models/Statement.class.php';
-  require_once '../classes/Permalink.class.php';
+  require_once 'classes/exceptions/NotValidException.php';
+  require_once 'classes/models/Statement.class.php';
+  require_once 'classes/Permalink.class.php';
 
   class Post extends Statement {
     private string $title;

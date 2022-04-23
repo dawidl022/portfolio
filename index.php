@@ -21,27 +21,27 @@ Check out my projects and work and find out how to reach out to me.">
       <div class="socials">
         <a href="https://github.com/dawidl022" class="social-icon"
           target="_blank" rel="noopener">
-          <img src="assets/icons/github.svg" alt="GitHub">
+          <img src="/assets/icons/github.svg" alt="GitHub">
         </a>
         <a href="https://www.linkedin.com/in/dawid-k-lachowicz/"
           class="social-icon" target="_blank" rel="noopener">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn">
+          <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
         </a>
         <a href="mailto:dawid.k.lachowicz@gmail.com" class="social-icon">
-          <img src="assets/icons/at.svg" alt="Email">
+          <img src="/assets/icons/at.svg" alt="Email">
         </a>
       </div>
 
       <a class="scroll-prompt" href="#about-me">
         <div>Learn more about what I do</div>
 
-        <img src="assets/images/chevron.svg" alt="scroll down arrow"
+        <img src="/assets/images/chevron.svg" alt="scroll down arrow"
           width="150" height="75">
       </a>
     </section>
 
     <div class="about section" id="about-me">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <section class="content">
@@ -58,7 +58,7 @@ Check out my projects and work and find out how to reach out to me.">
                 projects!
               </p>
             </div>
-            <img src="assets/images/dawid.png" alt="Photo of Dawid Lachowicz">
+            <img src="/assets/images/dawid.png" alt="Photo of Dawid Lachowicz">
           </div>
         </section>
 

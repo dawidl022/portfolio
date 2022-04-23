@@ -6,7 +6,7 @@
   define('ALL_PARAMS', ['name', 'email', 'password', 'password-repeat']);
 
   function redirect_to_register() {
-    header("Location: ../register");
+    header("Location: /register");
     exit();
   }
 
@@ -46,7 +46,7 @@
 
     // TODO add link back through query param or referer to blog post
     $_SESSION['id'] = $user->getId();
-    header("Location: ../register-success");
+    header("Location: /register-success");
 
   } catch (QueryFailedException $e) {
     $_SESSION['error'] = 'Server was unable to register your account';

@@ -1,6 +1,6 @@
 <?php
-  require_once 'User.class.php';
-  require_once 'Post.class.php';
+  require_once 'classes/models/User.class.php';
+  require_once 'classes/models/Post.class.php';
 
   class Author extends User {
     private const GET_POSTS_SQL = "SELECT * FROM posts WHERE author_id = ?;";

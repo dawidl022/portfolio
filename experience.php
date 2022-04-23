@@ -10,7 +10,7 @@
 
   <main class="sub-page">
     <section class="section experience">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <div class="content">
@@ -45,7 +45,7 @@
               </div>
             </div>
             <a href="https://www.maturait.pl/" target="_blank" rel="noopener">
-              <img src="assets/images/logos/maturait.svg" alt="MaturaIT"
+              <img src="/assets/images/logos/maturait.svg" alt="MaturaIT"
                 class="rounded-logo">
             </a>
           </article>
@@ -69,7 +69,7 @@
               </div>
             </div>
             <a href="https://www.allbarone.co.uk/" target="_blank" rel="noopener">
-              <img src="assets/images/logos/abo.png" alt="All Bar One"
+              <img src="/assets/images/logos/abo.png" alt="All Bar One"
                 class="rounded-logo">
             </a>
           </article>
@@ -98,7 +98,7 @@
               </div>
             </div>
             <a href="https://www.salsafever.pl/" target="_blank" rel="noopener">
-              <img src="assets/images/logos/sf.jpg" alt="Salsa Fever Wrocław"
+              <img src="/assets/images/logos/sf.jpg" alt="Salsa Fever Wrocław"
                 class="rounded-logo">
             </a>
           </article>
@@ -119,7 +119,7 @@
               </div>
             </div>
             <a href="https://www.mcdonalds.com/gb/en-gb.html" target="_blank" rel="noopener">
-              <img src="assets/images/logos/mcdonalds.svg" alt="McDonald's"
+              <img src="/assets/images/logos/mcdonalds.svg" alt="McDonald's"
                 class="rounded-logo">
             </a>
           </article>

@@ -10,7 +10,7 @@
 
   <main class="sub-page">
     <section class="section blog">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
       <h1>Blog</h1>
 
       <div class="container">

@@ -1,6 +1,6 @@
 <?php
-  require_once 'exceptions/QueryFailedException.php';
-  require_once 'exceptions/RecordNotFoundException.php';
+  require_once 'classes/exceptions/QueryFailedException.php';
+  require_once 'classes/exceptions/RecordNotFoundException.php';
 
   class Database {
     private mysqli $conn;

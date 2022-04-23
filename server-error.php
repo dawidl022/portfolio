@@ -9,7 +9,7 @@
   <?php require 'partials/_header.php'; ?>
 
   <main class="login section sub-page">
-    <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+    <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
     <div class="container">
 
       <div class="form-wrapper">

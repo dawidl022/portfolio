@@ -3,7 +3,7 @@
 <head>
   <?php require 'partials/_head.php'; ?>
 
-  <link rel="stylesheet" href="assets/fonts/github-icon/css/github.css">
+  <link rel="stylesheet" href="/assets/fonts/github-icon/css/github.css">
   <title>Dawid Lachowicz - Portfolio</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
 
   <main class="sub-page">
     <section class="section portfolio">
-      <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
+      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
         <div class="content">
@@ -23,7 +23,7 @@
             <div class="description">
               <a href="https://acclimate.herokuapp.com/">
                 <figure>
-                  <img src="assets/images/projects/accliamte.png"
+                  <img src="/assets/images/projects/accliamte.png"
                     alt="Screenshot of Acclimate app" class="screenshot">
                   <figcaption>
                     <h2>Acclimate App</h2>
@@ -51,22 +51,22 @@
             <div class="tech-stack">
               <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"
                 target="_blank" rel="noopener">
-                <img src="assets/devicons/html5-original.svg" alt="HTML5">
+                <img src="/assets/devicons/html5-original.svg" alt="HTML5">
               </a>
               <a href="https://sass-lang.com/" target="_blank" rel="noopener">
-                <img src="assets/icons/sass.svg" alt="SCSS">
+                <img src="/assets/icons/sass.svg" alt="SCSS">
               </a>
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">
-                <img src="assets/devicons/javascript-original.svg" alt="JavaScript">
+                <img src="/assets/devicons/javascript-original.svg" alt="JavaScript">
               </a>
               <a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">
-                <img src="assets/devicons/ruby-original.svg" alt="Ruby">
+                <img src="/assets/devicons/ruby-original.svg" alt="Ruby">
               </a>
               <a href="https://rubyonrails.org/" target="_blank" rel="noopener">
-                <img src="assets/devicons/rails-original-wordmark.svg" alt="Ruby on Rails">
+                <img src="/assets/devicons/rails-original-wordmark.svg" alt="Ruby on Rails">
               </a>
               <a href="https://www.heroku.com/" target="_blank" rel="noopener">
-                <img src="assets/devicons/heroku-original.svg" alt="Heroku">
+                <img src="/assets/devicons/heroku-original.svg" alt="Heroku">
               </a>
             </div>
           </article>
@@ -75,7 +75,7 @@
             <div class="description">
               <a href="https://github.com/dawidl022/healthy-change">
                 <figure>
-                  <img src="assets/images/projects/healthy-change.jpg"
+                  <img src="/assets/images/projects/healthy-change.jpg"
                     alt="Screenshot of Healthy Change App" class="screenshot">
                   <figcaption>
                     <h2>Healthy Change</h2>
@@ -102,10 +102,10 @@
 
             <div class="tech-stack">
               <a href="https://www.python.org/" target="_blank" rel="noopener">
-                <img src="assets/devicons/python-original.svg" alt="Python">
+                <img src="/assets/devicons/python-original.svg" alt="Python">
               </a>
               <a href="https://kivy.org/" target="_blank" rel="noopener">
-                <img src="assets/icons/kivy.png" alt="Kivy">
+                <img src="/assets/icons/kivy.png" alt="Kivy">
               </a>
             </div>
           </article>
@@ -114,7 +114,7 @@
             <div class="description">
               <a href="https://replit.com/@dawidl022/top-rb-chess">
                 <figure>
-                  <img src="assets/images/projects/cli-chess.png"
+                  <img src="/assets/images/projects/cli-chess.png"
                     alt="Screenshot of Command-line Chess" class="screenshot">
                   <figcaption>
                     <h2>Command-line Chess</h2>
@@ -137,10 +137,10 @@
 
             <div class="tech-stack">
               <a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">
-                <img src="assets/devicons/ruby-original.svg" alt="Ruby">
+                <img src="/assets/devicons/ruby-original.svg" alt="Ruby">
               </a>
               <a href="https://rspec.info/" target="_blank" rel="noopener">
-                <img src="assets/devicons/rspec.svg" alt="RSpec">
+                <img src="/assets/devicons/rspec.svg" alt="RSpec">
               </a>
             </div>
           </article>
