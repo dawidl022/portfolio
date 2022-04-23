@@ -1,13 +1,14 @@
 <?php
   require_once '../classes/exceptions/NotValidException.php';
   require_once '../classes/models/Statement.class.php';
+  require_once '../classes/Permalink.class.php';
 
   class Post extends Statement {
     private string $title;
     private int $numberOfVotes;
 
     private const INSERT_NEW_SQL =
-      "INSERT INTO posts (author_id, title, content) VALUES(?, ?, ?);";
+      "INSERT INTO posts (author_id, title, content, permalink) VALUES(?, ?, ?, ?);";
 
     private const DELETE_SQL =
       "DELETE FROM posts WHERE id = ?;";
@@ -59,8 +60,9 @@
       $db = $this->getDb();
 
       $db->command(
-        self::INSERT_NEW_SQL, 'iss', $this->getAuthorId(), $this->title,
-        $this->getContent()
+        self::INSERT_NEW_SQL, 'isss', $this->getAuthorId(), $this->title,
+        $this->getContent(),
+        Permalink::uniqueIn($this->title, $this->getDb(), 'posts')
       );
 
       $this->setId($db->getConn()->insert_id);

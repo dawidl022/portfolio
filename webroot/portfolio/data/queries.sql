@@ -13,7 +13,8 @@ CREATE INDEX email_index ON users(email);
 CREATE TABLE posts (
     id INT NOT NULL AUTO_INCREMENT,
     author_id INT,
-    title VARCHAR(1024) NOT NULL,
+    title VARCHAR(511) NOT NULL,
+    permalink VARCHAR(511) NOT NULL UNIQUE,
     content TEXT NOT NULL,
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     date_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
