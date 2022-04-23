@@ -6,14 +6,26 @@
   <title>Dawid Lachowicz - Add a blog post</title>
 </head>
 <body>
-  <?php require 'partials/_header.php'; ?>
+  <?php
+    require 'partials/_header.php';
+
+    if (!isset($_SESSION['id'])) {
+      $_SESSION['redirect_to'] = 'add-post';
+      $_SESSION['error'] = 'Please log in to add a post';
+      header("Location: login");
+    }
+
+    if (!$user->isAuthor()) {
+      header("Location: .");
+    }
+  ?>
 
   <main class="add-post section sub-page">
     <img src="assets/icons/circuit.svg" alt="" class="circuit-icon">
     <div class="container">
 
       <div class="form-wrapper">
-        <form action="#" class="box-form">
+        <form action="scripts/add-post.php" method="post" class="box-form">
           <h1>Add blog post</h1>
 
           <div class="field">

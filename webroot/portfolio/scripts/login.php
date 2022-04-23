@@ -27,7 +27,9 @@
   if ($id !== null) {
     $_SESSION['id'] = $id;
 
-    header("Location: ../");
+    $redirect_to = isset($_SESSION['redirect_to']) ? $_SESSION['redirect_to']
+                                                   : '';
+    header("Location: ../$redirect_to");
   } else {
     $_SESSION['error'] = 'Invalid email address or password';
     $_SESSION['email'] = $_POST['email'];

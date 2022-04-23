@@ -5,11 +5,6 @@
   class Author extends User {
     private const GET_POSTS_SQL = "SELECT * FROM posts WHERE author_id = ?;";
 
-    function createPost(Post $post) {
-      $post->setAuthor($this);
-      $post->save();
-    }
-
     /**
      * @return array of User objects
      */
