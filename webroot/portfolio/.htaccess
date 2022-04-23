@@ -1,6 +1,13 @@
+RewriteEngine on
+
+# Rewrite SEO-friendly blog post URL to article query string
+# (source: https://www.youtube.com/watch?v=oaf3PfxHaLQ)
+
+RewriteRule blog/([^/\.]+)/?$ view-blog.php?permalink=$1
+
+
 # Remove extension from URL (source: https://stackoverflow.com/a/16773980/)
 
-RewriteEngine on
 # if is not directory
 RewriteCond %{REQUEST_FILENAME} !-d
 # if is an existing php file
