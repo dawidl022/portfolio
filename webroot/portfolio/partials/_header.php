@@ -10,7 +10,7 @@
       try {
         $user = new User($_SESSION['id'], $db);
         $logged_in = true;
-      } catch (UserNotFoundException $e) {
+      } catch (RecordNotFoundException $e) {
         // no need to keep the user id in the session if it is invalid
         unset($_SESSION['id']);
       }

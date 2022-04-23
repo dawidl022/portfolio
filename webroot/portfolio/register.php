@@ -64,3 +64,7 @@
   </main>
 </body>
 </html>
+
+<?php
+  // unset variables after filling in
+?>

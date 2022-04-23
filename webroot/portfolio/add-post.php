@@ -1,3 +1,7 @@
+<?php
+  require_once 'classes/Validation.class.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +32,19 @@
         <form action="scripts/add-post.php" method="post" class="box-form">
           <h1>Add blog post</h1>
 
+          <?php require_once 'partials/_form-error.php'; ?>
+
           <div class="field">
             <label for="title">Title</label>
             <input type="title" name="title" id="title" placeholder="Title"
-              required>
+              required <?= Validation::fillValue('title') ?>>
           </div>
 
           <div class="field big-field">
             <label for="content">Content</label>
-            <textarea type="content" name="content" id="content"
-              placeholder="Your thoughts..." rows="5"></textarea>
+            <textarea name="content" id="content"
+              placeholder="Your thoughts..." required
+              rows="5"><?= Validation::fillRaw('content') ?></textarea>
           </div>
 
           <div class="buttons">

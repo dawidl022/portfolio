@@ -42,5 +42,9 @@
     static function fillValue(string $name) {
       return isset($_SESSION[$name]) ? 'value="' . $_SESSION[$name] . '"' : '';
     }
+
+    static function fillRaw(string $name) {
+      return isset($_SESSION[$name]) ? $_SESSION[$name] : '';
+    }
   }
 ?>
