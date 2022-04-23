@@ -42,9 +42,10 @@
   if ($post->isValid()) {
     try {
       $post->save();
-      // TODO redirect to blog post with a flash message
+      // TODO add flash message
       unset($_SESSION['title']);
       unset($_SESSION['content']);
+      header("Location: ../blog/{$post->getPermalink()}");
       exit();
     } catch (QueryFailedException $e) {
       $_SESSION['error'] = 'Server was unable to add your post';

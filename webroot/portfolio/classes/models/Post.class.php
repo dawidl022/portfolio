@@ -6,6 +6,7 @@
   class Post extends Statement {
     private string $title;
     private int $numberOfVotes;
+    private string $permalink;
 
     private const INSERT_NEW_SQL =
       "INSERT INTO posts (author_id, title, content, permalink) VALUES(?, ?, ?, ?);";
@@ -16,7 +17,10 @@
     private const GET_SQL =
       "SELECT * FROM posts WHERE id = ?;";
 
-    private function __construct(string $title, string $content, Database $db,
+    private const GET_ID_SQL =
+      "SELECT id FROM posts WHERE permalink = ?;";
+
+    private function __construct(Database $db, ?string $title = null, ?string $content = null,
                      ?int $authorId = null, ?int $id = null,
                      ?int $timeCreated = null, ?int $timeModified = null,
                      ?int $numberOfVotes = 0) {
@@ -25,12 +29,21 @@
       $this->numberOfVotes = $numberOfVotes;
     }
 
-    static function create($title, $content, Author $author, Database $db) {
-      return new self($title, $content, $db, $author->getId());
+    static function create($title, $content, Author $author, Database $db) : self {
+      return new self($db, $title, $content, $author->getId());
     }
 
     static function fromId($id, $db) {
 
+    }
+
+    static function fromPermalink(string $permalink, $db) : self {
+      $post = new self($db);
+      $post->permalink = $permalink;
+
+      $post->setId($db->querySingle(self::GET_ID_SQL, 's', $permalink));
+      $post->fetchData();
+      return $post;
     }
 
     function save() : void {
@@ -56,13 +69,21 @@
         && $this->getContent() !== null && strlen($this->getContent()) > 0;
     }
 
+    function getPermalink() : string {
+      return $this->permalink;
+    }
+
+    function getTitle() : string {
+      return $this->title;
+    }
+
     private function insert() : void {
       $db = $this->getDb();
+      $this->permalink = Permalink::uniqueIn($this->title, $this->getDb(), 'posts');
 
       $db->command(
         self::INSERT_NEW_SQL, 'isss', $this->getAuthorId(), $this->title,
-        $this->getContent(),
-        Permalink::uniqueIn($this->title, $this->getDb(), 'posts')
+        $this->getContent(),$this->permalink
       );
 
       $this->setId($db->getConn()->insert_id);
