@@ -4,9 +4,9 @@
   require_once 'classes/Permalink.class.php';
 
   class Post extends Statement {
-    private string $title;
-    private int $numberOfVotes;
-    private string $permalink;
+    private ?string $title;
+    private ?int $numberOfVotes;
+    private ?string $permalink;
 
     private const INSERT_NEW_SQL =
       "INSERT INTO posts (author_id, title, content, permalink) VALUES(?, ?, ?, ?);";
@@ -24,7 +24,7 @@
                      ?int $authorId = null, ?int $id = null,
                      ?int $timeCreated = null, ?int $timeModified = null,
                      ?int $numberOfVotes = 0) {
-      parent::__construct($content, $db, $id, $authorId, $timeCreated, $timeModified);
+      parent::__construct($db, $content, $id, $authorId, $timeCreated, $timeModified);
       $this->title = $title;
       $this->numberOfVotes = $numberOfVotes;
     }
@@ -41,7 +41,7 @@
       $post = new self($db);
       $post->permalink = $permalink;
 
-      $post->setId($db->querySingle(self::GET_ID_SQL, 's', $permalink));
+      $post->setId($db->querySingle(self::GET_ID_SQL, 's', $permalink)['id']);
       $post->fetchData();
       return $post;
     }

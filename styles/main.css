@@ -630,6 +630,10 @@ h2 {
   max-width: 52rem;
 }
 
+.blog.single-post .content {
+  width: 90vw;
+}
+
 .blog h1 {
   padding: 3rem 0 1rem;
 }
@@ -777,7 +781,7 @@ h2 {
     justify-content: space-around;
   }
 
-  .blog .container {
+  .blog-index .container {
     grid-template-columns: auto 1fr;
     align-items: start;
   }
@@ -786,7 +790,7 @@ h2 {
     width: 20rem;
   }
 
-  .blog .content {
+  .blog-index .content {
     grid-column: 2;
   }
 }

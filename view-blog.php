@@ -15,6 +15,8 @@
     header("Location: /blog");
     exit();
   }
+
+  date_default_timezone_set('UTC');
 ?>
 
 <!DOCTYPE html>
@@ -28,25 +30,28 @@
   <?php require 'partials/_header.php'; ?>
 
   <main class="sub-page">
-    <section class="section blog">
+    <section class="section blog single-post">
       <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
       <h1><?= $post->getTitle() ?></h1>
 
       <div class="container">
-          <article class="post" id="post2">
-            <header>
-              <div class="info">
-                Posted on:
-                <time datetime="2022-03-16">3<sup>rd</sup> March 2022, 11:12 UTC</time>
-              </div>
-              <?php // TODO add edited on info ?>
-            </header>
-
-            <div class="body">
-              <?= $post->getContent() ?>
+        <article class="post content" id="post2">
+          <header>
+            <div class="info">
+              Posted on:
+              <?php // TODO make sure times are saved to db in UTC ?>
+              <time datetime="<?= date('c', $post->getTimeCreated()) ?>">
+                <?= date('j', $post->getTimeCreated()) ?><sup><?= date('S', $post->getTimeCreated()) ?></sup>
+                <?= date('F Y, H:i e', $post->getTimeCreated()) ?>
+              </time>
             </div>
-          </article>
-        </div>
+            <?php // TODO add edited on info ?>
+          </header>
+
+          <div class="body">
+            <?= $post->getContent() ?>
+          </div>
+        </article>
       </div>
     </section>
   </main>

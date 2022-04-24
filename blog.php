@@ -9,7 +9,7 @@
   <?php require 'partials/_header.php'; ?>
 
   <main class="sub-page">
-    <section class="section blog">
+    <section class="section blog blog-index">
       <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
       <h1>Blog</h1>
 

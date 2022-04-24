@@ -3,14 +3,14 @@
 
   abstract class Statement {
     private ?int $id;
-    private int $authorId;
-    private string $content;
+    private ?int $authorId;
+    private ?string $content;
     private ?int $timeCreated;
     private ?int $timeModified;
 
     private const GET_AUTHOR_SQL = "SELECT name FROM users WHERE id = ?;";
 
-    function __construct(string $content, Database $db, ?int $id = null,
+    function __construct(Database $db, ?string $content = null, ?int $id = null,
                          ?int $authorId = null,
                          ?int $timeCreated = null, ?int $timeModified = null) {
       $this->id = $id;
