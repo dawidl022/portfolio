@@ -41,9 +41,9 @@
       self::quickSort($items, $reverse, $callbackMethod, $pivot + 1, $end);
     }
 
-    private function compare($element1, $element2, ?string $callbackMethod) : int {
+    private static function compare($element1, $element2, ?string $callbackMethod) : int {
       if ($callbackMethod !== null) {
-        return $element1->{$callbackMethod} - $element2->{$callbackMethod};
+        return $element1->{$callbackMethod}() - $element2->{$callbackMethod}();
       } else {
         return $element1 - $element2;
       }

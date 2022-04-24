@@ -9,9 +9,14 @@
       $this->conn = $conn;
     }
 
-    function query(string $sql, string $param_types, ...$params) : array {
+    function query(string $sql, ?string $param_types, ...$params) : array {
       $query = $this->execute(...func_get_args());
       return $query->get_result()->fetch_all(MYSQLI_BOTH);
+    }
+
+    function queryIndexed(string $sql, ?string $param_types, ...$params) : array {
+      $query = $this->execute(...func_get_args());
+      return $query->get_result()->fetch_all(MYSQLI_NUM);
     }
 
     function querySingle(string $sql, string $param_types, ...$params) : array {
@@ -24,7 +29,7 @@
       return $result[0];
     }
 
-    function command(string $sql, string $param_types, ...$params) : void {
+    function command(string $sql, ?string $param_types, ...$params) : void {
       $this->execute(...func_get_args());
     }
 
@@ -32,7 +37,7 @@
       return $this->conn;
     }
 
-    private function execute(string $sql, string $param_types, ...$params)
+    private function execute(string $sql, ?string $param_types, ...$params)
                              : mysqli_stmt {
       $query = $this->conn->prepare($sql);
 
@@ -40,7 +45,9 @@
         throw new QueryFailedException();
       }
 
-      $query->bind_param($param_types, ...$params);
+      if ($param_types !== null) {
+        $query->bind_param($param_types, ...$params);
+      }
       $success = $query->execute();
 
       if (!$success) {

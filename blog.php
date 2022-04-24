@@ -1,3 +1,12 @@
+<?php
+  require_once 'scripts/db-connect-or-die.php';
+  require_once 'classes/models/User.class.php';
+  require_once 'classes/PostList.class.php';
+
+  date_default_timezone_set('UTC');
+  define('EXCERPT_LENGTH', 500);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,51 +37,33 @@
         <?php endif; ?>
         <div class="content">
 
-          <article class="post" id="post2">
+          <?php foreach (PostList::getAllOrderedByMostRecent($db) as $post):
+            $author = new User($post->getAuthorId(), $db);
+          ?>
+
+          <article class="post" id="post-<?= $post->getPermalink() ?>">
             <header>
-              <h2>New homepage released</h2>
+              <h2>
+                <a href="blog/<?= $post->getPermalink() ?>">
+                  <?= $post->getTitle() ?>
+                </a>
+              </h2>
+
               <div class="info">
                 Posted on:
-                <time datetime="2022-03-16">3<sup>rd</sup> March 2022, 11:12 UTC</time>
+                <?= Util::formatTime($post->getTimeCreated()) ?>
+                by <?= $author->getName() ?>
               </div>
             </header>
 
             <div class="body">
-              <p>
-                As part of the Fundamentals of Web Technology module exciting
-                mini-project, the time has come to release a new homepage. On this
-                homepage, you will find a lot of information about what makes me
-                stand out for the crowd. Oh, and I do hope you like the styling,
-                I tried my best :)
-              </p>
+              <?php $excerpt = preg_replace('/(<br>\n){3,}/' , "<br><br>\n",
+                strip_tags($post->getContent(), ['<br>', '<a>'])) ?>
+              <?= substr($excerpt, 0, EXCERPT_LENGTH) .
+                  (strlen($excerpt) > EXCERPT_LENGTH ? '...' : '') ?>
             </div>
           </article>
-
-          <article class="post" id="post1">
-            <header>
-              <h2>First blog post</h2>
-              <div class="info">
-                Posted on:
-                <time datetime="2022-01-28">28<sup>th</sup> January 2022, 15:01 UTC</time>
-              </div>
-            </header>
-
-            <div class="body">
-              <p>
-                Yes, I have decided to start my very own blog. I thought it would
-                be a great idea to try and write about the things I learn to
-                better solidify the concepts in my brain. It will also be a great
-                opportunity to work on my soft (writing) skills, as they are also
-                very very important.
-              </p>
-              <p>
-                The topics I plan to cover are Ruby on Rails,
-                Algorithms & Data Structures, problem solving and more. If you
-                would like to me write about a given topic, drop me an email.
-              </p>
-            </div>
-          </article>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </section>

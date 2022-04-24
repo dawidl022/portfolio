@@ -635,8 +635,12 @@ h2 {
   gap: 1rem;
 }
 
-.blog .content a {
+.blog .content a, .blog .content h2 a:hover {
   text-decoration: underline;
+}
+
+.blog .content h2 a {
+  text-decoration: none;
 }
 
 .blog .post-head {
@@ -779,7 +783,7 @@ h2 {
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   html {
     font-size: 1.2rem;
   }

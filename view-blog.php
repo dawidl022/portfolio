@@ -4,8 +4,6 @@
   require_once 'classes/models/User.class.php';
   require_once 'classes/Util.class.php';
 
-  // TODO display author's name too
-
   if (!isset($_GET['permalink'])) {
     header("Location: /blog");
     exit();

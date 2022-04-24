@@ -42,7 +42,8 @@
   }
 
   try {
-    $user = User::create($_POST['name'], $_POST['email'], $_POST['password'], $db);
+    $user = User::create(htmlspecialchars($_POST['name']), $_POST['email'],
+                         $_POST['password'], $db);
 
     // TODO add link back through query param or referer to blog post
     $_SESSION['id'] = $user->getId();

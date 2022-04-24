@@ -15,12 +15,17 @@
       <div class="form-wrapper">
         <div class="box-form">
           <h1>A sever error occurred</h1>
+
           <p class="center">
             Please try again later or contact me if the issue still persists:
             <a href="mailto:dawid.k.lachowicz@gmail.com" class="basic-link">
               dawid.k.lachowicz@gmail.com
             </a>
           </p>
+
+          <div class="panel">
+            <a href="/" class="login-btn">Back to home</a>
+          </div>
         </div>
       </div>
 

@@ -16,6 +16,9 @@
     Validation::savePostToSession(...ALL_PARAMS);
   }
 
+  /**
+   * Convert newline characters into <br> tags
+   */
   function convertNewlineToBr(string $text) : string {
     return preg_replace('/\R/', "<br>\n", $text);
   }
@@ -26,6 +29,10 @@
   }
 
   session_start();
+
+  // TODO trim input from all other forms
+  $_POST['title'] = trim($_POST['title']);
+  $_POST['content'] = trim($_POST['content']);
 
   // allow user to continue where they left off after signing in
   if (!isset($_SESSION['id'])) {
@@ -42,8 +49,8 @@
     header('Location: /');
   }
 
-  $post = Post::create($_POST['title'], convertNewlineToBr($_POST['content']),
-                       $author, $db);
+  $post = Post::create(htmlspecialchars($_POST['title']),
+                       convertNewlineToBr($_POST['content']), $author, $db);
   if ($post->isValid()) {
     try {
       $post->save();
