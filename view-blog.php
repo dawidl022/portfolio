@@ -17,8 +17,6 @@
   }
 
   $author = new User($post->getAuthorId(), $db);
-
-  date_default_timezone_set('UTC');
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +31,11 @@
 
   <main class="sub-page">
     <section class="section blog single-post">
-      <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
-      <h1><?= $post->getTitle() ?></h1>
+      <div>
+        <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
+        <h1><?= $post->getTitle() ?></h1>
+        <a href="/blog" class="login-btn">Back to all posts</a>
+      </div>
 
       <div class="container">
         <article class="post content">

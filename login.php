@@ -1,5 +1,10 @@
 <?php
   require 'classes/Validation.class.php';
+  require_once 'scripts/load-user.php';
+
+  if (isset($_SESSION['id'])) {
+    header("Location: /");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +17,6 @@
 <body>
   <?php
     require 'partials/_header.php';
-
-    if (isset($_SESSION['id'])) {
-      header("Location: /");
-    }
   ?>
 
   <main class="login section sub-page">

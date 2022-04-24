@@ -1,5 +1,18 @@
 <?php
   require_once 'classes/Validation.class.php';
+  require_once 'scripts/load-user.php';
+
+  if (!isset($_SESSION['id'])) {
+    $_SESSION['redirect_to'] = 'add-post';
+    $_SESSION['error'] = 'Please log in to add a post';
+    header("Location: /login");
+    exit();
+  }
+
+  if (!$user->isAuthor()) {
+    header("Location: /");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -12,16 +25,6 @@
 <body>
   <?php
     require 'partials/_header.php';
-
-    if (!isset($_SESSION['id'])) {
-      $_SESSION['redirect_to'] = 'add-post';
-      $_SESSION['error'] = 'Please log in to add a post';
-      header("Location: /login");
-    }
-
-    if (!$user->isAuthor()) {
-      header("Location: /");
-    }
   ?>
 
   <main class="add-post section sub-page">

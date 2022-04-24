@@ -3,7 +3,6 @@
   require_once 'classes/models/User.class.php';
   require_once 'classes/PostList.class.php';
 
-  date_default_timezone_set('UTC');
   define('EXCERPT_LENGTH', 500);
 
   $all_posts = PostList::getAllOrderedByMostRecent($db);
@@ -65,7 +64,7 @@
 
             <div class="body">
               <?php $excerpt = preg_replace('/(<br>\n){3,}/' , "<br><br>\n",
-                strip_tags($post->getContent(), ['<br>', '<a>'])) ?>
+                strip_tags($post->getContent(), ['<br>', '<a>', '<strong>', '<em>'])) ?>
               <?= substr($excerpt, 0, EXCERPT_LENGTH) .
                   (strlen($excerpt) > EXCERPT_LENGTH ? '...' : '') ?>
             </div>

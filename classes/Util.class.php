@@ -1,6 +1,8 @@
 <?php
   class Util {
     static function formatTime(int $timestamp) {
+      date_default_timezone_set('UTC');
+
       return sprintf(
         '<time datetime="%s">%s' .
           '<sup>%s</sup> ' .

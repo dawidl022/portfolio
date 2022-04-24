@@ -628,6 +628,7 @@ h2 {
 
 .blog .content {
   max-width: 52rem;
+  width: 100%;
 }
 
 .blog.single-post .content {
