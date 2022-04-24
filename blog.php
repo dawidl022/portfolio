@@ -5,6 +5,8 @@
 
   date_default_timezone_set('UTC');
   define('EXCERPT_LENGTH', 500);
+
+  $all_posts = PostList::getAllOrderedByMostRecent($db);
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +29,10 @@
           <aside class="blog-aside">
             <h2><?= $user->getUserType() ?> Dashboard</h2>
             <div>
+              <?php // TODO add link to user's posts ?>
               <div><em>Your posts: 2</em></div>
               <?php if ($user->isAdmin()): ?>
-                <div><em>Total number of posts: 2</em></div>
+                <div><em>Total number of posts: <?= count($all_posts) ?></em></div>
               <?php endif; ?>
             </div>
             <a href="add-post" class="login-btn read-btn add-btn">New post</a>
@@ -37,7 +40,11 @@
         <?php endif; ?>
         <div class="content">
 
-          <?php foreach (PostList::getAllOrderedByMostRecent($db) as $post):
+          <?php if (count($all_posts) === 0):
+            echo '<em>No posts to display</em>';
+          endif;
+
+          foreach ($all_posts as $post):
             $author = new User($post->getAuthorId(), $db);
           ?>
 
