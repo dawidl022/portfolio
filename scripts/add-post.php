@@ -16,6 +16,10 @@
     Validation::savePostToSession(...ALL_PARAMS);
   }
 
+  function convertNewlineToBr(string $text) : string {
+    return preg_replace('/\R/', "<br>\n", $text);
+  }
+
   if ($_SERVER['REQUEST_METHOD'] !== 'POST'
   || !Validation::arePostSet(...ALL_PARAMS)) {
     redirect_to_add_post();
@@ -38,7 +42,8 @@
     header('Location: /');
   }
 
-  $post = Post::create($_POST['title'], $_POST['content'], $author, $db);
+  $post = Post::create($_POST['title'], convertNewlineToBr($_POST['content']),
+                       $author, $db);
   if ($post->isValid()) {
     try {
       $post->save();

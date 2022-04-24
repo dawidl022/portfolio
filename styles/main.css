@@ -632,6 +632,18 @@ h2 {
 
 .blog.single-post .content {
   width: 90vw;
+  gap: 1rem;
+}
+
+.blog .content a {
+  text-decoration: underline;
+}
+
+.blog .post-head {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 5rem;
 }
 
 .blog h1 {
