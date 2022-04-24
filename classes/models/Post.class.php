@@ -20,17 +20,18 @@
     private const GET_ID_SQL =
       "SELECT id FROM posts WHERE permalink = ?;";
 
-    private function __construct(Database $db, ?string $title = null, ?string $content = null,
-                     ?int $authorId = null, ?int $id = null,
-                     ?int $timeCreated = null, ?int $timeModified = null,
-                     ?int $numberOfVotes = 0) {
+    function __construct(Database $db, ?int $id = null, ?int $authorId = null,
+                         ?string $title = null, ?string $permalink = null,
+                         ?string $content = null, ?int $timeCreated = null,
+                         ?int $timeModified = null, ?int $numberOfVotes = 0) {
       parent::__construct($db, $content, $id, $authorId, $timeCreated, $timeModified);
       $this->title = $title;
       $this->numberOfVotes = $numberOfVotes;
+      $this->permalink = $permalink;
     }
 
     static function create($title, $content, Author $author, Database $db) : self {
-      return new self($db, $title, $content, $author->getId());
+      return new self($db, null, $author->getId(), $title, null, $content);
     }
 
     static function fromId($id, $db) {
