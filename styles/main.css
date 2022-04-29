@@ -42,6 +42,16 @@ h2 {
   position: absolute;
 }
 
+/* A11y styles recommended by https://webaim.org/techniques/css/invisiblecontent/ */
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 .center {
   text-align: center;
 }
@@ -692,6 +702,42 @@ h2 {
 
 .blog p:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+.blog .vote-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  filter: invert(36%) sepia(0%) saturate(206%) hue-rotate(190deg) brightness(89%) contrast(94%);
+}
+
+.blog .vote-btn .heart {
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog .vote-btn .heart::before {
+  content: "";
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+  background-image: url(/assets/icons/heart-outline.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.blog .vote-btn.liked {
+  filter: invert(56%) sepia(58%) saturate(2571%) hue-rotate(315deg) brightness(96%) contrast(103%);
+}
+
+.blog .vote-btn.liked .heart::before {
+  background-image: url(/assets/icons/heart.svg);
 }
 
 /* FOOTER STYLES */

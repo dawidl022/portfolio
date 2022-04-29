@@ -24,6 +24,7 @@
 <head>
   <?php require 'partials/_head.php'; ?>
 
+  <script src="/scripts/js/vote.js" defer></script>
   <title><?= $post->getTitle() ?>  | Dawid Lachowicz</title>
 </head>
 <body>
@@ -59,6 +60,20 @@
             <?= $post->getContent() ?>
           </div>
 
+          <footer>
+            <noscript>
+              Please enable JavaScript to vote on this post
+            </noscript>
+
+            <form id="vote-form">
+              <input type="hidden" name="post-id">
+              <button disabled type="submit" class='vote-btn'>
+                <span class="heart"></span>
+                <span class="sr-only">Vote up. Current number of votes:</span>
+                <span class="counter"><?= $post->getNumberOfVotes() ?></span>
+              </button>
+            </form>
+          </footer>
         </article>
       </div>
     </section>

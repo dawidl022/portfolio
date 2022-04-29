@@ -78,6 +78,10 @@
       return $this->title;
     }
 
+    function getNumberOfVotes() : int {
+      return $this->numberOfVotes;
+    }
+
     private function insert() : void {
       $db = $this->getDb();
       $this->permalink = Permalink::uniqueIn($this->title, $this->getDb(), 'posts');
