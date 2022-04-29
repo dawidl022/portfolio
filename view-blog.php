@@ -66,7 +66,7 @@
             </noscript>
 
             <form id="vote-form">
-              <input type="hidden" name="post-id">
+              <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
               <button disabled type="submit" class='vote-btn'>
                 <span class="heart"></span>
                 <span class="sr-only">Vote up. Current number of votes:</span>

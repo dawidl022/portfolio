@@ -1,7 +1,7 @@
 (() => {
   const voteForm = document.querySelector('#vote-form');
   const voteBtn = voteForm.querySelector('button[type="submit"]');
-  const postId = voteForm.querySelector('[name="post-id"]');
+  const postId = voteForm.querySelector('[name="post-id"]').value;
   const counter = voteForm.querySelector('.counter')
 
   if (isPostAlreadyLiked()) {
@@ -29,9 +29,9 @@
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/scripts/vote-up.php', true);
-    xhr.setRequestHeader('Content-type', 'x-www-form-urlencoded');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
-    const param = `id=${postId.textContent}`
+    const param = `id=${postId}`
 
     xhr.onload = function() {
       if (this.status === 204) {
@@ -41,7 +41,7 @@
         }
 
         likedPosts.push(postId)
-        localStorage.setItem('voted-posts', likedPosts)
+        localStorage.setItem('voted-posts', JSON.stringify(likedPosts))
       }
     }
 
@@ -50,6 +50,6 @@
 
   function isPostAlreadyLiked() {
     const votedPosts = localStorage.getItem('voted-posts');
-    return votedPosts && JSON.parse(votedPosts).includes(postId);
+    return votedPosts && Array.from(JSON.parse(votedPosts)).includes(postId);
   }
 })()

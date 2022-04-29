@@ -20,6 +20,11 @@
     private const GET_ID_SQL =
       "SELECT id FROM posts WHERE permalink = ?;";
 
+    private const LOCK_SQL = "LOCK TABLES posts WRITE;";
+    private const GET_VOTES = "SELECT votes FROM posts WHERE id = ?;";
+    private const SET_VOTES = "UPDATE posts SET votes = ? WHERE id = ?;";
+    private const UNLOCK_SQL = "UNLOCK TABLES;";
+
     function __construct(Database $db, ?int $id = null, ?int $authorId = null,
                          ?string $title = null, ?string $permalink = null,
                          ?string $content = null, ?int $timeCreated = null,
@@ -35,7 +40,10 @@
     }
 
     static function fromId($id, $db) {
+      $post = new self($db, $id);
+      $post->fetchData();
 
+      return $post;
     }
 
     static function fromPermalink(string $permalink, $db) : self {
@@ -45,6 +53,24 @@
       $post->setId($db->querySingle(self::GET_ID_SQL, 's', $permalink)['id']);
       $post->fetchData();
       return $post;
+    }
+
+    static function upvote(Database $db, int $id) : void {
+      $db->getConn()->begin_transaction();
+
+      try {
+        while (!$db->getConn()->query(self::LOCK_SQL));
+
+        $voteCount = $db->querySingle(self::GET_VOTES, 's', $id)['votes'];
+        $db->command(self::SET_VOTES, 'ii', $voteCount + 1, $id);
+
+        $db->getConn()->query(self::UNLOCK_SQL);
+
+        $db->getConn()->commit();
+      } catch (mysqli_sql_exception | RecordNotFoundException $exception) {
+        $db->getConn()->rollback();
+        throw $exception;
+      }
     }
 
     function save() : void {
