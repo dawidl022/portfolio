@@ -10,9 +10,8 @@
 
     private const GET_AUTHOR_SQL = "SELECT name FROM users WHERE id = ?;";
 
-    function __construct(Database $db, ?string $content = null, ?int $id = null,
-                         ?int $authorId = null,
-                         ?int $timeCreated = null, ?int $timeModified = null) {
+    function __construct(Database $db, ?string $content, ?int $id,
+                         ?int $authorId, ?int $timeCreated, ?int $timeModified) {
       $this->id = $id;
       $this->authorId = $authorId;
       $this->content = $content;
@@ -36,7 +35,7 @@
     }
 
     function getAuthorName() : ?string {
-      $result = $this->db->query(self::GET_AUTHOR_SQL, 'i', $this->id);
+      $result = $this->db->query(self::GET_AUTHOR_SQL, 'i', $this->authorId);
 
       if (count($result) === 0) {
         return null;

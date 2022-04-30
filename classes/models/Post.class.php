@@ -1,6 +1,7 @@
 <?php
   require_once 'classes/exceptions/NotValidException.php';
   require_once 'classes/models/Statement.class.php';
+  require_once 'classes/models/Comment.class.php';
   require_once 'classes/Permalink.class.php';
 
   class Post extends Statement {
@@ -19,6 +20,9 @@
 
     private const GET_ID_SQL =
       "SELECT id FROM posts WHERE permalink = ?;";
+
+    private const GET_COMMENTS_SQL =
+      "SELECT * FROM comments WHERE post_id = ?;";
 
     private const LOCK_SQL = "LOCK TABLES posts WRITE;";
     private const GET_VOTES = "SELECT votes FROM posts WHERE id = ?;";
@@ -106,6 +110,26 @@
 
     function getNumberOfVotes() : int {
       return $this->numberOfVotes;
+    }
+
+    function getComments() : array {
+      $raw_comments =
+        $this->getDb()->query(self::GET_COMMENTS_SQL, 'i', $this->getId());
+
+      $comments = array();
+
+      foreach ($raw_comments as $raw) {
+        $comment = new Comment($this->getDb(), $raw['content'], $raw['id'],
+                   $raw['user_id'], strtotime($raw['date_created']), strtotime($raw['date_modified']));
+
+        if ($raw['in_reply_to'] == null) {
+          $comments[$raw['id']] = $comment;
+        } else {
+          $comment[$raw['in_reply_to']]->addReply($comment);
+        }
+      }
+
+      return $comments;
     }
 
     private function insert() : void {

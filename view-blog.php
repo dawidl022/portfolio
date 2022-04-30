@@ -44,6 +44,8 @@
 
       $author = new User($post->getAuthorId(), $db);
   }
+
+  $comments = $post->getComments();
 ?>
 
 <!DOCTYPE html>
@@ -94,19 +96,21 @@
               Please enable JavaScript to vote on this post
             </noscript>
 
-            <form id="vote-form">
-              <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
-              <button disabled type="submit" class='vote-btn'>
-                <span class="heart"></span>
-                <span class="sr-only">Vote up. Current number of votes:</span>
-                <span class="counter"><?= $post->getNumberOfVotes() ?></span>
-              </button>
-            </form>
-            <div class="comment-count">
-              <?php // TODO ?>
-              <span class="comment-icon"></span>
-              <span class="sr-only">Number of comments:</span>
-              <div class="counter"></div>
+            <div class="footer-icons">
+              <form id="vote-form">
+                <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
+                <button disabled type="submit" class='vote-btn heart-btn'>
+                  <span class="heart circle"></span>
+                  <span class="sr-only">Vote up. Current number of votes:</span>
+                  <span class="counter"><?= $post->getNumberOfVotes() ?></span>
+                </button>
+              </form>
+
+              <a class="comment-count vote-btn" href="#comments">
+                <span class="comment-icon circle"></span>
+                <span class="sr-only">Number of comments:</span>
+                <div class="counter"><?= count($comments) ?></div>
+              </a>
             </div>
           </footer>
         </article>
@@ -120,11 +124,24 @@
 
               <div class="field">
                 <label for="comment">Your comment:</label>
-                <textarea name="comment" id="comment" rows="3" required></textarea>
+                <textarea name="comment" id="comment" rows="3" required
+                  placeholder="What you think about this post..."></textarea>
               </div>
 
               <button type="submit" class="login-btn read-btn">Add comment</button>
             </form>
+          <?php endif; ?>
+
+          <?php
+            if (count($comments) == 0):
+              echo '<em>No comments to display</em>';
+            else:
+          ?>
+              <ol>
+                <?php foreach ($comments as $comment):
+                  require 'partials/_comment.php';
+                endforeach; ?>
+              </ol>
           <?php endif; ?>
         </section>
       </div>

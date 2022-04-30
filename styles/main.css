@@ -760,7 +760,7 @@ h2 {
   margin-top: 1rem;
 }
 
-.blog .post .info {
+.blog .post .info, .info-bar .info {
   font-style: italic;
   font-weight: 300;
 }
@@ -774,17 +774,20 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.blog .vote-btn {
+.blog .content .vote-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.3rem;
-  filter: invert(36%) sepia(0%) saturate(206%) hue-rotate(190deg) brightness(89%) contrast(94%);
+  filter: invert(56%) sepia(58%) saturate(0%) hue-rotate(315deg) brightness(60%) contrast(103%);
+  text-decoration: none;
+  transition: filter 0.2s ease-out;
 }
 
-.blog .vote-btn .heart {
-  padding: 0.5rem;
+.blog .vote-btn .circle {
+  width: 3rem;
+  aspect-ratio: 1 / 1;
   border: 2px solid black;
   border-radius: 50%;
   display: flex;
@@ -792,18 +795,30 @@ h2 {
   align-items: center;
 }
 
-.blog .vote-btn .heart::before {
+.blog .vote-btn .circle::before {
   content: "";
   width: 2rem;
   aspect-ratio: 1 / 1;
-  background-image: url(/assets/icons/heart-outline.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
 
-.blog .vote-btn.liked {
+.blog .vote-btn .heart::before {
+  background-image: url(/assets/icons/heart-outline.svg);
+}
+
+.blog .vote-btn .comment-icon::before {
+  background-image: url(/assets/icons/chat.svg);
+  width: 1.6rem;
+}
+
+.blog .content .vote-btn:where(.liked, .heart-btn:hover) {
   filter: invert(56%) sepia(58%) saturate(2571%) hue-rotate(315deg) brightness(96%) contrast(103%);
+}
+
+.blog .vote-btn.liked {
+  cursor: inherit;
 }
 
 .blog .vote-btn.liked .heart::before {
@@ -814,6 +829,11 @@ h2 {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid #ccc;
+}
+
+.blog .post-footer .footer-icons {
+  display: flex;
+  gap: 1rem;
 }
 
 /* COMMENTS SECTION */
@@ -828,6 +848,25 @@ h2 {
   gap: 1rem;
 }
 
+.comments .name {
+  font-weight: bold;
+}
+
+.comments .info {
+  font-size: .9rem;
+}
+
+.comment {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.comment .info-bar {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--cta-color);
+  margin-bottom: .5rem;
+}
 
 /* FOOTER STYLES */
 
