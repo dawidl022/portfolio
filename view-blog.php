@@ -135,12 +135,14 @@
 
           <?php
             if (count($comments) == 0):
-              echo '<em>No comments to display</em>';
+              echo '<em id="no-comments">No comments to display</em>';
             else:
           ?>
               <ol id="comment-list">
                 <?php foreach ($comments as $comment):
+                  echo '<li>';
                   require 'partials/_comment.php';
+                  echo '</li>';
                 endforeach; ?>
               </ol>
           <?php endif; ?>

@@ -15,6 +15,9 @@
     private const DELETE_SQL =
       "DELETE FROM comments WHERE id = ?;";
 
+    private const GET_DATES_SQL =
+      "SELECT date_created, date_modified FROM comments WHERE id = ?;";
+
     function __construct(Database $db, string $content, ?int $id, ?int $userId,
                          int $postId, ?int $inReplyTo, ?int $timeCreated = null,
                          ?int $timeModified = null) {
@@ -86,7 +89,9 @@
     }
 
     private function fetchDates() : void {
-
+      $dates = $this->getDb()->querySingle(self::GET_DATES_SQL, 'i', $this->getId());
+      $this->setTimeCreated(strtotime($dates['date_created']));
+      $this->setTimeModified(strtotime($dates['date_modified']));
     }
   }
 ?>

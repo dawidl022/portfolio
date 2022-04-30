@@ -1,3 +1,8 @@
+<?php
+  require_once 'classes/Util.class.php';
+  require_once 'scripts/load-user.php';
+?>
+
 <div class="comment">
   <div class="info-bar">
     <span class="name"><?= $comment->getAuthorName() ?></span>
