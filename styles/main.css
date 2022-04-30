@@ -6,6 +6,7 @@
   --white: #F0F9FF;
   --main-color: #0C4A6E;
   --cta-color: #38BDF8;
+  --error-color: #ff9b51;
 }
 
 html {
@@ -429,7 +430,7 @@ h2 {
 }
 
 .box-form .error {
-  color: #ff9b51;
+  color: var(--error-color);
   font-size: 1.2rem;
 }
 
@@ -454,6 +455,15 @@ h2 {
 
 .box-form input:focus, .box-form textarea:focus {
   outline-color: var(--cta-color);
+}
+
+.box-form .field .error {
+  order: 1;
+  font-size: 1.1rem;
+}
+
+.box-form .field .error.visible ~ :where(input, textarea) {
+  outline-color: var(--error-color);
 }
 
 /* ADD POST PAGE */

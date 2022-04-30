@@ -41,12 +41,14 @@
 
           <div class="field">
             <label for="title">Title</label>
+            <strong class="error"></strong>
             <input type="title" name="title" id="title" placeholder="Title"
               required <?= Validation::fillValue('title') ?>>
           </div>
 
           <div class="field big-field">
             <label for="content">Content</label>
+            <strong class="error"></strong>
             <textarea name="content" id="content"
               placeholder="Your thoughts..." required
               rows="5"><?= Validation::fillRaw('content') ?></textarea>
