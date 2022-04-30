@@ -1,22 +1,49 @@
 <?php
   require_once 'scripts/db-connect-or-die.php';
+  require_once 'scripts/load-user.php';
   require_once 'classes/models/Post.class.php';
   require_once 'classes/models/User.class.php';
   require_once 'classes/Util.class.php';
 
-  if (!isset($_GET['permalink'])) {
-    header("Location: /blog");
-    exit();
-  }
+  if (isset($_POST['title']) && isset($_POST['content'])) {
+    // PREVIEW LOGIC
+    $preview = true;
+    $_SESSION['title'] = $_POST['title'];
+    $_SESSION['content'] = $_POST['content'];
 
-  try {
-    $post = Post::fromPermalink($_GET['permalink'], $db);
-  } catch (RecordNotFoundException $e) {
-    header("Location: /blog");
-    exit();
-  }
+    if ($logged_in) {
+      $author = $user;
+      $current_time = time();
+      $post = new Post($db, null, $user->getId(), $_POST['title'], null,
+                       $_POST['content'], $current_time, $current_time);
 
-  $author = new User($post->getAuthorId(), $db);
+      $_SESSION['flash_type'] = 'info';
+      $_SESSION['flash_message'] = 'preview';
+    } else {
+      $_SESSION['redirect_to'] = 'add-post';
+      $_SESSION['error'] = 'Please log in to add and preview a post';
+      header("Location: /login");
+      exit();
+    }
+
+  } else {
+      // NORMAL VIEW LOGIC
+      $preview = false;
+
+      if (!isset($_GET['permalink'])) {
+        header("Location: /blog");
+        exit();
+      }
+
+      try {
+        $post = Post::fromPermalink($_GET['permalink'], $db);
+      } catch (RecordNotFoundException $e) {
+        header("Location: /blog");
+        exit();
+      }
+
+      $author = new User($post->getAuthorId(), $db);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +62,9 @@
       <div>
         <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
         <h1><?= $post->getTitle() ?></h1>
-        <a href="/blog" class="login-btn">Back to all posts</a>
+        <?php if (!$preview): ?>
+          <a href="/blog" class="login-btn">Back to all posts</a>
+        <?php endif; ?>
       </div>
 
       <div class="container">

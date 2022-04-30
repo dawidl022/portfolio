@@ -45,11 +45,17 @@
           case 'welcome':
             echo "Welcome {$user->getName()}. You have successfully logged in.";
             break;
+          case 'preview':
+            echo 'You are in preview mode.';
+            require_once 'partials/_post-preview-controls.php';
+            break;
         }
       ?>
       </strong>
-      <button type="button" aria-label="close message" id="close-flash"
-        class="close-btn" title="Close message">X</button>
+      <?php if ($_SESSION['flash_message'] !== 'preview'): ?>
+        <button type="button" aria-label="close message" id="close-flash"
+          class="close-btn" title="Close message">X</button>
+      <?php endif; ?>
     </aside>
   <?php
     unset($_SESSION['flash_message']);

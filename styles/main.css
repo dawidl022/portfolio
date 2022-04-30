@@ -143,10 +143,40 @@ h2 {
 
 .flash .message {
   grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1rem
 }
 
 .flash.success {
   background-color: #0c6e14;
+  color: var(--white);
+}
+
+.flash.info {
+  background-color: var(--cta-color);
+  color: var(--white);
+}
+
+.flash .login-btn {
+  margin: 0.1rem;
+  padding: 0.1rem 1rem;
+  border-color: var(--white);
+}
+
+.flash .login-btn:hover {
+  color: var(--cta-color);
+  background-color: var(--white);
+}
+
+.flash .submit-btn {
+  --green: #008f0c;
+  border-color: var(--green);
+}
+
+.flash .submit-btn:hover {
+  background-color: var(--green);
   color: var(--white);
 }
 
@@ -496,6 +526,10 @@ h2 {
 
 .add-post .clear-btn:hover {
   background-color: var(--red);
+}
+
+.add-post .preview-btn {
+  grid-column: 1 / -1;
 }
 
 .add-post .box-form textarea {

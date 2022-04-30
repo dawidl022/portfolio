@@ -1,6 +1,7 @@
 (() => {
   const form = document.querySelector('#add-post-form')
   const clearBtn = document.querySelector('.clear-btn');
+  const previewBtn = document.querySelector("#preview-btn");
 
   const titleInput = form.querySelector('#title');
   const contentInput = form.querySelector('#content');
@@ -13,6 +14,13 @@
     if (confirm("Are you sure you want to clear your entire post?\n" +
                 "This cannot be undone.")) {
       form.reset();
+    }
+  });
+
+  previewBtn.addEventListener('click', () => {
+    form.setAttribute('action', '/view-blog.php');
+    if (validateForm({ preventDefault() {} })) {
+      form.submit();
     }
   })
 
@@ -35,6 +43,8 @@
     if (!validateNonEmpty(titleInput, titleError)
       | !validateNonEmpty(contentInput, contentError)) {
       e.preventDefault()
+      return false;
     }
+    return true;
   }
 })()

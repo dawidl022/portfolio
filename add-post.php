@@ -55,6 +55,8 @@
           </div>
 
           <div class="buttons">
+            <button type="button" class="login-btn preview-btn"
+              id="preview-btn">Preview post</button>
             <button type="submit" class="login-btn">Add post</button>
             <button type="reset" class="login-btn clear-btn">Clear</button>
           </div>
