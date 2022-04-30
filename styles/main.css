@@ -132,6 +132,7 @@ h2 {
 
 .login-btn:hover {
   background-color: var(--cta-color);
+  color: white;
 }
 
 .flash {
@@ -151,12 +152,12 @@ h2 {
 
 .flash.success {
   background-color: #0c6e14;
-  color: var(--white);
+  color: white;
 }
 
 .flash.info {
   background-color: var(--cta-color);
-  color: var(--white);
+  color: white;
 }
 
 .flash .login-btn {
@@ -386,8 +387,10 @@ h2 {
   font-weight: bold;
 }
 
-.blog-aside .post a, .read-btn {
+.read-btn {
   color: #075985;
+  margin-top: 0.5rem;
+  background-color: #fff;
 }
 
 .blog-aside .post h3 a:hover {
@@ -397,11 +400,6 @@ h2 {
 .blog-aside .post .info {
   font-style: italic;
   padding-bottom: 0.3rem;
-}
-
-.blog-aside .read-btn {
-  margin-top: 0.5rem;
-  background-color: #fff;
 }
 
 .blog-aside .read-btn:hover {
@@ -470,20 +468,20 @@ h2 {
   justify-content: center;
 }
 
-.box-form .field {
+.field {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 
-.box-form input, .box-form textarea {
+.field input, .field textarea {
   padding: 0.4rem 1rem;
   border-radius: 2px;
   transition: outline-color 0.2s ease-out;
   outline: 2px solid transparent;
 }
 
-.box-form input:focus, .box-form textarea:focus {
+.field input:focus, .field textarea:focus {
   outline-color: var(--cta-color);
 }
 
@@ -711,6 +709,11 @@ h2 {
 .blog.single-post .content {
   width: 90vw;
   gap: 1rem;
+  padding: 1rem;
+}
+
+.blog.blog.single-post .container {
+  gap: 0
 }
 
 .blog .content a, .blog .content h2 a:hover {
@@ -762,7 +765,7 @@ h2 {
   font-weight: 300;
 }
 
-.blog .post:not(:last-child) {
+.blog:not(.single-post) .post:not(:last-child) {
   padding-bottom: 2rem;
   border-bottom: 1px solid #ccc;
 }
@@ -806,6 +809,25 @@ h2 {
 .blog .vote-btn.liked .heart::before {
   background-image: url(/assets/icons/heart.svg);
 }
+
+.blog .post-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+/* COMMENTS SECTION */
+
+.comment-form textarea {
+  resize: vertical;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 
 /* FOOTER STYLES */
 

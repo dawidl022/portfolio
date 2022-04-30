@@ -63,7 +63,7 @@
         <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
         <h1><?= $post->getTitle() ?></h1>
         <?php if (!$preview): ?>
-          <a href="/blog" class="login-btn">Back to all posts</a>
+          <a href="/blog" class="login-btn read-btn">Back to all posts</a>
         <?php endif; ?>
       </div>
 
@@ -89,7 +89,7 @@
             <?= $post->getContent() ?>
           </div>
 
-          <footer>
+          <footer class="post-footer">
             <noscript>
               Please enable JavaScript to vote on this post
             </noscript>
@@ -102,8 +102,31 @@
                 <span class="counter"><?= $post->getNumberOfVotes() ?></span>
               </button>
             </form>
+            <div class="comment-count">
+              <?php // TODO ?>
+              <span class="comment-icon"></span>
+              <span class="sr-only">Number of comments:</span>
+              <div class="counter"></div>
+            </div>
           </footer>
         </article>
+        <section class="comments content" id="comments">
+          <h2>Comments</h2>
+
+          <?php if (!$preview && $logged_in): ?>
+            <form action="/scripts/add-comment.php" method="post" id="comment-form"
+              class="comment-form">
+              <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
+
+              <div class="field">
+                <label for="comment">Your comment:</label>
+                <textarea name="comment" id="comment" rows="3" required></textarea>
+              </div>
+
+              <button type="submit" class="login-btn read-btn">Add comment</button>
+            </form>
+          <?php endif; ?>
+        </section>
       </div>
     </section>
   </main>
