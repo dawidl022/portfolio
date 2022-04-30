@@ -54,6 +54,7 @@
   <?php require 'partials/_head.php'; ?>
 
   <script src="/scripts/js/vote.js" defer></script>
+  <script src="/scripts/js/comments.js" defer></script>
   <title><?= $post->getTitle() ?>  | Dawid Lachowicz</title>
 </head>
 <body>
@@ -137,7 +138,7 @@
               echo '<em>No comments to display</em>';
             else:
           ?>
-              <ol>
+              <ol id="comment-list">
                 <?php foreach ($comments as $comment):
                   require 'partials/_comment.php';
                 endforeach; ?>
