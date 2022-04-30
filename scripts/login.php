@@ -29,6 +29,8 @@
 
     $redirect_to = isset($_SESSION['redirect_to']) ? $_SESSION['redirect_to']
                                                    : 'blog';
+    $_SESSION['flash_type'] = 'success';
+    $_SESSION['flash_message'] = 'welcome';
     header("Location: /$redirect_to");
   } else {
     $_SESSION['error'] = 'Invalid email address or password';

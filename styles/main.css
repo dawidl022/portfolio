@@ -62,15 +62,18 @@ h2 {
 
 /* HEADER */
 
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .header {
   background-color: var(--main-color);
   color: var(--white);
   padding: 1.5rem;
   gap: 3rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
 }
 
 .header .start {
@@ -128,6 +131,26 @@ h2 {
 
 .login-btn:hover {
   background-color: var(--cta-color);
+}
+
+.flash {
+  text-align: center;
+  padding: .5rem;
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+}
+
+.flash .message {
+  grid-column: 2;
+}
+
+.flash.success {
+  background-color: #0c6e14;
+  color: var(--white);
+}
+
+.flash .close-btn {
+  padding: 0 1rem
 }
 
 /* HOMEPAGE STYLES */
