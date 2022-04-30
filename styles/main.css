@@ -160,9 +160,12 @@ h2 {
   color: white;
 }
 
-.flash .login-btn {
+.flash .login-btn, .comment .login-btn {
   margin: 0.1rem;
   padding: 0.1rem 1rem;
+}
+
+.flash .login-btn {
   border-color: var(--white);
 }
 
@@ -516,13 +519,13 @@ h2 {
   flex: 1;
 }
 
-.add-post .clear-btn {
+.clear-btn {
   --red: #f83838;
 
   border-color: var(--red);
 }
 
-.add-post .clear-btn:hover {
+.clear-btn:hover {
   background-color: var(--red);
 }
 
@@ -848,6 +851,12 @@ h2 {
   gap: 1rem;
 }
 
+.comments ol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .comments .name {
   font-weight: bold;
 }
@@ -866,6 +875,14 @@ h2 {
   padding-bottom: .5rem;
   border-bottom: 1px solid var(--cta-color);
   margin-bottom: .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  align-items: baseline;
+}
+
+.comment .clear-btn {
+  margin-left: auto;
 }
 
 /* FOOTER STYLES */

@@ -109,7 +109,7 @@
               <a class="comment-count vote-btn" href="#comments">
                 <span class="comment-icon circle"></span>
                 <span class="sr-only">Number of comments:</span>
-                <div class="counter"><?= count($comments) ?></div>
+                <div class="counter"><?= $post->getCommentCount() ?></div>
               </a>
             </div>
           </footer>

@@ -24,6 +24,9 @@
     private const GET_COMMENTS_SQL =
       "SELECT * FROM comments WHERE post_id = ?;";
 
+    private const GET_COMMENT_COUNT_SQL =
+      "SELECT COUNT(*) AS comment_count FROM comments WHERE post_id = ?;";
+
     private const LOCK_SQL = "LOCK TABLES posts WRITE;";
     private const GET_VOTES = "SELECT votes FROM posts WHERE id = ?;";
     private const SET_VOTES = "UPDATE posts SET votes = ? WHERE id = ?;";
@@ -120,7 +123,8 @@
 
       foreach ($raw_comments as $raw) {
         $comment = new Comment($this->getDb(), $raw['content'], $raw['id'],
-                   $raw['user_id'], strtotime($raw['date_created']), strtotime($raw['date_modified']));
+                   $raw['user_id'], $raw['post_id'], $raw['in_reply_to'],
+                   strtotime($raw['date_created']), strtotime($raw['date_modified']));
 
         if ($raw['in_reply_to'] == null) {
           $comments[$raw['id']] = $comment;
@@ -132,9 +136,16 @@
       return $comments;
     }
 
+    function getCommentCount() : int {
+      return $this->getDb()
+        ->querySingle(self::GET_COMMENT_COUNT_SQL, 'i', $this->getId())
+        ['comment_count'];
+    }
+
     private function insert() : void {
       $db = $this->getDb();
       $this->permalink = Permalink::uniqueIn($this->title, $this->getDb(), 'posts');
+
 
       $db->command(
         self::INSERT_NEW_SQL, 'isss', $this->getAuthorId(), $this->title,
@@ -157,6 +168,7 @@
       $this->setContent($post_data['content']);
       $this->setTimeCreated(strtotime($post_data['date_created']));
       $this->setTimeModified(strtotime($post_data['date_modified']));
+      $this->permalink = $post_data['permalink'];
     }
   }
 ?>
