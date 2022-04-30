@@ -28,6 +28,8 @@ CREATE TABLE posts (
         ON DELETE SET NULL
 );
 
+-- TODO create post_votes 1:1 table, then inner join on posts
+
 
 CREATE TABLE comments (
     id INT NOT NULL AUTO_INCREMENT,

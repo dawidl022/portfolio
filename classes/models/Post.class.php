@@ -94,8 +94,8 @@
       $this->fetchData();
     }
 
-    function delete() : void {
-      $this->getDb()->command(self::DELETE_SQL, 'i', $this->getId());
+    static function delete(Database $db, int $id) : void {
+      $db->command(self::DELETE_SQL, 'i', $id);
     }
 
     function isValid(): bool {

@@ -12,6 +12,9 @@
     private const GET_IN_REPLY_TO_SQL =
       "SELECT in_reply_to FROM comments WHERE id = ?;";
 
+    private const DELETE_SQL =
+      "DELETE FROM comments WHERE id = ?;";
+
     function __construct(Database $db, string $content, ?int $id, ?int $userId,
                          int $postId, ?int $inReplyTo, ?int $timeCreated = null,
                          ?int $timeModified = null) {
@@ -48,8 +51,8 @@
       $this->fetchDates();
     }
 
-    function delete() : void {
-      // TODO
+    static function delete(Database $db, int $id) : void {
+      $db->command(self::DELETE_SQL, 'i', $id);
     }
 
     function isValid(): bool {

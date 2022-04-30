@@ -22,7 +22,7 @@
 
     abstract function save() : void;
 
-    abstract function delete() : void;
+    abstract static function delete(Database $db, int $id) : void;
 
     abstract function isValid() : bool;
 

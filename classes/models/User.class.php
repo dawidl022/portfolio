@@ -5,14 +5,21 @@
     private bool $admin;
     private bool $author;
     private mysqli $conn;
+    private Database $db;
 
     private const CREATE_SQL =
       "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?);";
+
     private const GET_SQL =
       "SELECT name, admin, author FROM users WHERE id = ?;";
+
     private const AUTHENTICATE_SQL =
       "SELECT id, password_hash FROM users WHERE email = ?;";
+
     private const EMAIL_SQL = 'SELECT id FROM users WHERE email = ?;';
+
+    private const OWNS_COMMENT_SQL =
+      'SELECT COUNT(*) AS owns FROM comments WHERE id = ? AND user_id = ?;';
 
     function __construct(int $id, Database $db) {
       $this->id = $id;
@@ -67,6 +74,12 @@
 
     function getUserType() : string {
       return $this->isAdmin() ? 'Admin' : 'Author';
+    }
+
+    function ownsComment(int $commentId) : bool {
+      return $this->db
+        ->querySingle(self::OWNS_COMMENT_SQL, 'ii', $commentId, $this->id)
+        ['owns'] === 1;
     }
 
     protected function getConn() {
