@@ -4,6 +4,8 @@
   require_once '../classes/Validation.class.php';
 
   define('ALL_PARAMS', ['name', 'email', 'password', 'password-repeat']);
+  // TODO extract to global constants and use in register and login forms
+  define('MIN_PASSWORD_LENGTH', 8);
 
   function redirect_to_register() {
     header("Location: /register");
@@ -31,6 +33,13 @@
 
   if (User::isEmailTaken($_POST['email'], $db)) {
     $_SESSION['error'] = 'Email address is already taken';
+    save_all_input_to_session();
+    redirect_to_register();
+  }
+
+  if (strlen($_POST['password']) < MIN_PASSWORD_LENGTH) {
+    $_SESSION['error'] = 'Your password must have at least '
+      . MIN_PASSWORD_LENGTH . ' characters';
     save_all_input_to_session();
     redirect_to_register();
   }

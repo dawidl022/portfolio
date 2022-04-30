@@ -48,7 +48,8 @@
         }
       ?>
       </strong>
-      <button type="button" aria-label="close message" id="close-flash" class="close-btn" title="Close message">X</button>
+      <button type="button" aria-label="close message" id="close-flash"
+        class="close-btn" title="Close message">X</button>
     </aside>
   <?php
     unset($_SESSION['flash_message']);

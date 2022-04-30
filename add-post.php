@@ -20,6 +20,7 @@
 <head>
   <?php require 'partials/_head.php'; ?>
 
+  <script src="/scripts/js/add-post.js" defer></script>
   <title>Dawid Lachowicz - Add a blog post</title>
 </head>
 <body>
@@ -32,7 +33,8 @@
     <div class="container">
 
       <div class="form-wrapper">
-        <form action="scripts/add-post.php" method="post" class="box-form">
+        <form action="scripts/add-post.php" method="post" class="box-form"
+          id="add-post-form">
           <h1>Add blog post</h1>
 
           <?php require_once 'partials/_form-error.php'; ?>
