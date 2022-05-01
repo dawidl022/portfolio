@@ -4,7 +4,8 @@
       <select id="month-dropdown" name="month">
         <option value="any">All months</option>
         <?php foreach (PostList::getMonths($db) as $month): ?>
-          <option value="<?= $month ?>">
+          <option value="<?= $month ?>"
+            <?= isset($_GET['month']) && $month == $_GET['month'] ? 'selected' : '' ?> >
             <?= (new DateTime($month . '-01'))->format('F Y') ?>
           </option>
         <?php endforeach; ?>
