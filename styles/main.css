@@ -848,6 +848,11 @@ h2 {
   gap: 1rem;
 }
 
+.blog-index .posts {
+  display: grid;
+  gap: 2rem;
+}
+
 .blog-index .post .info {
   display: flex;
   align-items: baseline;

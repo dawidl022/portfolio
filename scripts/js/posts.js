@@ -1,9 +1,8 @@
 (() => {
-  const deleteForms = document.querySelectorAll('.delete-post');
-
-  deleteForms.forEach(form => form.addEventListener('click', deletePrompt));
-
-  // TODO update delete forms after refreshing view
+  function bindDeleteListeners() {
+    const deleteForms = document.querySelectorAll('.delete-post');
+    deleteForms.forEach(form => form.addEventListener('click', deletePrompt));
+  }
 
   function deletePrompt(e) {
     if(!confirm('Delete this post?')) {
@@ -17,6 +16,8 @@
   if (location.search === '') {
     history.replaceState({month: 'any'}, '', '/blog')
   }
+
+  bindDeleteListeners();
 
   monthDropdown.addEventListener('change', e => fetchPosts(e.target.value, true));
   addEventListener('popstate', e => {
@@ -33,6 +34,7 @@
 
     xhr.onload = function() {
       postsContainer.innerHTML = this.responseText;
+      bindDeleteListeners();
 
       if (pushToHistory) {
         history.pushState({ month }, '', `/blog.php?${params}`)

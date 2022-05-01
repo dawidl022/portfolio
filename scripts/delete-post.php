@@ -16,5 +16,11 @@
     }
   }
 
-  header("Location: /blog");
+  if ($_SERVER["HTTP_REFERER"]) {
+    $redirect_to = $_SERVER["HTTP_REFERER"];
+  } else {
+    $redirect_to = "/blog";
+  }
+
+  header("Location: $redirect_to")
 ?>
