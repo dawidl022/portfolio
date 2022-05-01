@@ -4,18 +4,14 @@
 
   class Author extends User {
     private const GET_POSTS_SQL = "SELECT * FROM posts WHERE author_id = ?;";
+    private const GET_POST_COUNT_SQL =
+      "SELECT COUNT(*) AS post_count FROM posts WHERE author_id = ?;";
 
     /**
      * @return array of User objects
      */
     function getPosts() : array {
-      $conn = parent::getConn();
-
-      $query = $conn->prepare(self::GET_POSTS_SQL);
-      $query->bind_param('i', parent::getId());
-      $query->execute();
-
-      $raw_posts =  $query->get_result()->fetch_all(MYSQLI_BOTH);
+      $raw_posts = $this->getDb()->query(self::GET_POSTS_SQL, 'i', $this->getId());
 
       $posts = array();
       foreach ($raw_posts as $raw_post) {
@@ -23,6 +19,12 @@
       }
 
       return $posts;
+    }
+
+    function getPostCount() : int {
+      return $this->getDb()
+        ->querySingle(self::GET_POST_COUNT_SQL, 'i', $this->getId())
+        ['post_count'];
     }
   }
 ?>

@@ -86,6 +86,10 @@
       return $this->conn;
     }
 
+    protected function getDb() {
+      return $this->db;
+    }
+
     private function fetchData() {
       $user_data = $this->db->querySingle(self::GET_SQL, 'i', $this->id);
 

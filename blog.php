@@ -1,6 +1,7 @@
 <?php
   require_once 'scripts/db-connect-or-die.php';
   require_once 'classes/models/User.class.php';
+  require_once 'classes/models/Author.class.php';
   require_once 'classes/PostList.class.php';
 
   define('EXCERPT_LENGTH', 500);
@@ -29,8 +30,8 @@
           <aside class="blog-aside">
             <h2><?= $user->getUserType() ?> Dashboard</h2>
             <div>
-              <?php // TODO add link to user's posts ?>
-              <div><em>Your posts: 2</em></div>
+              <?php $author = new Author($_SESSION['id'], $db); ?>
+              <div><em>Your posts: <?= $author->getPostCount() ?></em></div>
               <?php if ($user->isAdmin()): ?>
                 <div><em>Total number of posts: <?= count($all_posts) ?></em></div>
               <?php endif; ?>
