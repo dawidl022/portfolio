@@ -5,8 +5,13 @@
   require_once 'classes/PostList.class.php';
 
   define('EXCERPT_LENGTH', 500);
+  date_default_timezone_set('UTC');
 
-  $all_posts = PostList::getAllOrderedByMostRecent($db);
+  if (isset($_GET['month']) && $_GET['month'] !== 'any') {
+    $all_posts = PostList::getByMonth($db, $_GET['month']);
+  } else {
+    $all_posts = PostList::getAllOrderedByMostRecent($db);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +38,7 @@
               <?php $author = new Author($_SESSION['id'], $db); ?>
               <div><em>Your posts: <?= $author->getPostCount() ?></em></div>
               <?php if ($user->isAdmin()): ?>
+                <!-- FIXME -->
                 <div><em>Total number of posts: <?= count($all_posts) ?></em></div>
               <?php endif; ?>
             </div>

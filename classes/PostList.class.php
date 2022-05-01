@@ -5,7 +5,7 @@
   class PostList {
     private const GET_ALL_SQL = "SELECT * FROM posts;";
     private const GET_BY_MONTH_SQL =
-      "SELECT * FROM posts WHERE date_created >= ? AND date_created < ?";
+      "SELECT * FROM posts WHERE UNIX_TIMESTAMP(date_created) >= ? AND UNIX_TIMESTAMP(date_created) < ?";
 
     private const GET_MONTHS_SQL =
       "SELECT DISTINCT CONCAT(YEAR(date_created), '-', " .
@@ -15,26 +15,23 @@
 
     static function getAll(Database $db) : array {
       $raw_posts = $db->queryIndexed(self::GET_ALL_SQL, null);
-      $posts = array();
-
-      foreach ($raw_posts as $raw_post) {
-        $raw_post[5] = strtotime($raw_post[5]);
-        $raw_post[6] = strtotime($raw_post[6]);
-        $posts[] = new Post($db, ...$raw_post);
-      }
-
-      return $posts;
+      return self::rawPostsToObjects($db, $raw_posts);
     }
 
-    static function getByMonth(Database $db, string $mm_yyyy) : array {
+    static function getByMonth(Database $db, string $yyyy_mm) : array {
       date_default_timezone_set('UTC');
 
-      $first = DateTime::createFromFormat('Y-m-d', $mm_yyyy . '-01');
+      $first = new DateTime($yyyy_mm . '-01');
       $aMonth = DateInterval::createFromDateString('1 month');
       $last = $first->add($aMonth);
 
-      $posts = $db->queryIndexed(self::GET_BY_MONTH_SQL, 'ii',
+      $first = new DateTime($yyyy_mm . '-01');
+
+
+      $raw_posts = $db->queryIndexed(self::GET_BY_MONTH_SQL, 'ii',
         $first->getTimestamp(), $last->getTimestamp());
+
+      $posts = self::rawPostsToObjects($db, $raw_posts);
 
       Util::quickSort($posts, true, 'getTimeCreated');
 
@@ -55,6 +52,18 @@
     static function getAllOrderedByMostRecent(Database $db) : array {
       $posts = self::getAll($db);
       Util::quickSort($posts, true, 'getTimeCreated');
+
+      return $posts;
+    }
+
+    private static function rawPostsToObjects(Database $db, array $raw_posts) : array {
+      $posts = array();
+
+      foreach ($raw_posts as $raw_post) {
+        $raw_post[5] = strtotime($raw_post[5]);
+        $raw_post[6] = strtotime($raw_post[6]);
+        $posts[] = new Post($db, ...$raw_post);
+      }
 
       return $posts;
     }

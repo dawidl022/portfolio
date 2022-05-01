@@ -1,3 +1,5 @@
+SET GLOBAL time_zone = '+00:00';
+
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(511) NOT NULL,

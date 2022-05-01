@@ -5,6 +5,8 @@
   require_once 'classes/models/User.class.php';
   require_once 'classes/Util.class.php';
 
+  date_default_timezone_set('UTC');
+
   if (isset($_POST['title']) && isset($_POST['content'])) {
     // PREVIEW LOGIC
     $preview = true;
