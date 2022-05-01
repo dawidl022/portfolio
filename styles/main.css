@@ -7,6 +7,7 @@
   --main-color: #0C4A6E;
   --cta-color: #38BDF8;
   --error-color: #ff9b51;
+  --red: #f83838;
 }
 
 html {
@@ -152,6 +153,11 @@ h2 {
 
 .flash.success {
   background-color: #0c6e14;
+  color: white;
+}
+
+.flash.error {
+  background-color: var(--red);
   color: white;
 }
 
@@ -488,7 +494,7 @@ h2 {
   outline-color: var(--cta-color);
 }
 
-.box-form .field .error {
+.box-form .field .error, .comment-form .error {
   order: 1;
   font-size: 1.1rem;
 }
@@ -520,8 +526,6 @@ h2 {
 }
 
 .clear-btn {
-  --red: #f83838;
-
   border-color: var(--red);
 }
 
@@ -894,6 +898,13 @@ h2 {
 
 .comment .delete-comment {
   margin-left: auto;
+}
+
+.comment-form .error {
+  color: var(--red);
+}
+.comment-form .error.visible ~ textarea {
+  outline-color: var(--red);
 }
 
 /* FOOTER STYLES */

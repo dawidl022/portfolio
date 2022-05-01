@@ -50,8 +50,13 @@
                       $in_reply_to);
 
   if (!$comment->isValid()) {
-    $_SESSION['error'] = 'Comment cannot be blank';
-    redirect_to_post($post->getPermalink());
+
+    if (isset($_POST['async'])) {
+      http_response_code(400);
+    } else {
+      $_SESSION['error'] = 'Comment cannot be blank';
+      redirect_to_post($post->getPermalink());
+    }
   } else if (!$comment->isValidReply()) {
     $_SESSION['error'] = 'Cannot reply to selected comment';
     redirect_to_post($post->getPermalink());
@@ -62,12 +67,20 @@
     unset($_SESSION['content']);
     unset($_SESSION['in-reply-to']);
   } catch (QueryFailedException $e) {
-    $_SESSION['error'] = 'Server was unable to add your comment';
+
+    if (isset($_POST['async'])) {
+      http_response_code(500);
+      exit();
+    }
+
+    $_SESSION['flash_message'] = 'comment-error';
+    $_SESSION['flash_type'] = 'error';
   }
 
   if (isset($_POST['async'])) {
     require_once 'partials/_comment.php';
-  } else {
-    redirect_to_post($post->getPermalink());
+    exit();
   }
+
+  redirect_to_post($post->getPermalink());
 ?>

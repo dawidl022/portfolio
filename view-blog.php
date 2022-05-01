@@ -124,6 +124,9 @@
               <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
 
               <div class="field">
+                <strong class="error <?= isset($_SESSION['error']) ? 'visible' : '' ?>">
+                  <?= isset($_SESSION['error']) ? $_SESSION['error'] : '' ?>
+                </strong>
                 <label for="comment">Your comment:</label>
                 <textarea name="comment" id="comment" rows="3" required
                   placeholder="What you think about this post..."></textarea>
@@ -154,3 +157,7 @@
   <?php require 'partials/_footer.html'; ?>
 </body>
 </html>
+
+<?php
+  unset($_SESSION['error']);
+?>

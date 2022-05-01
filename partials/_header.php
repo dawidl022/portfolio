@@ -49,6 +49,9 @@
             echo 'You are in preview mode.';
             require_once 'partials/_post-preview-controls.php';
             break;
+          case 'comment-error':
+            echo 'An error occurred. We were unable to add your comment.';
+            break;
         }
       ?>
       </strong>

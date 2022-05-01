@@ -35,8 +35,12 @@
           noComments.setAttribute('id', 'no-comments');
           commentsContainer.appendChild(noComments);
         }
+
+        setFlash('success', document.createTextNode(
+          'Comment deleted successfully.'))
       } else {
-        // TODO flash message with error
+        setFlash('error', document.createTextNode(
+          'An error occurred. We were unable to delete the comment.'));
       }
     }
 
@@ -44,6 +48,12 @@
   }
 
   function addComment(e) {
+    function resetError(form) {
+      const error = form.querySelector('.error');
+      error.textContent = '';
+      error.classList.remove('visible');
+    }
+
     e.preventDefault();
 
     const postId = e.target['post-id'].value;
@@ -72,9 +82,20 @@
         commentList.appendChild(comment);
         commentCount.textContent = parseInt(commentCount.textContent) + 1;
         e.target.reset()
-        // TODO display flash message
+
+        setFlash('success', document.createTextNode(
+          'Your comment was added successfully.'))
+
+        resetError(e.target);
+      } else if (this.status === 400) {
+        const error = e.target.querySelector('.error')
+
+        error.textContent = 'Comment cannot be empty.';
+        error.classList.add('visible');
       } else {
-        // TODO display flash message
+        setFlash('error', document.createTextNode(
+          'An error occurred. We were unable to add your comment.'));
+        resetError(e.target)
       }
     }
 

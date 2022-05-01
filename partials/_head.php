@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/styles/reset.css">
 <link rel="stylesheet" href="/styles/main.css">
 
+<script src="/scripts/js/flash.js" defer></script>
 <script src="/scripts/js/main.js" defer></script>
 
 <?php // TODO add favicon ?>
