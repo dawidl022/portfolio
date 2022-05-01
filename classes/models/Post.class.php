@@ -11,12 +11,13 @@
 
     private const INSERT_NEW_SQL =
       "INSERT INTO posts (author_id, title, content, permalink) VALUES(?, ?, ?, ?);";
+    private const INSERT_NEW_VOTES_SQL = "INSERT INTO votes (post_id) VALUES(?);";
 
     private const DELETE_SQL =
       "DELETE FROM posts WHERE id = ?;";
 
     private const GET_SQL =
-      "SELECT * FROM posts WHERE id = ?;";
+      "SELECT * FROM posts INNER JOIN votes ON votes.post_id = posts.id WHERE id = ?;";
 
     private const GET_ID_SQL =
       "SELECT id FROM posts WHERE permalink = ?;";
@@ -27,9 +28,9 @@
     private const GET_COMMENT_COUNT_SQL =
       "SELECT COUNT(*) AS comment_count FROM comments WHERE post_id = ?;";
 
-    private const LOCK_SQL = "LOCK TABLES posts WRITE;";
-    private const GET_VOTES = "SELECT votes FROM posts WHERE id = ?;";
-    private const SET_VOTES = "UPDATE posts SET votes = ? WHERE id = ?;";
+    private const LOCK_SQL = "LOCK TABLES votes WRITE;";
+    private const GET_VOTES = "SELECT vote_count FROM votes WHERE post_id = ?;";
+    private const SET_VOTES = "UPDATE votes SET vote_count = ? WHERE post_id = ?;";
     private const UNLOCK_SQL = "UNLOCK TABLES;";
 
     function __construct(Database $db, ?int $id = null, ?int $authorId = null,
@@ -68,7 +69,7 @@
       try {
         while (!$db->getConn()->query(self::LOCK_SQL));
 
-        $voteCount = $db->querySingle(self::GET_VOTES, 's', $id)['votes'];
+        $voteCount = $db->querySingle(self::GET_VOTES, 'i', $id)['vote_count'];
         $db->command(self::SET_VOTES, 'ii', $voteCount + 1, $id);
 
         $db->getConn()->query(self::UNLOCK_SQL);
@@ -152,7 +153,9 @@
         $this->getContent(),$this->permalink
       );
 
-      $this->setId($db->getConn()->insert_id);
+      $id = $db->getConn()->insert_id;
+      $this->setId($id);
+      $db->command(self::INSERT_NEW_VOTES_SQL, 'i', $id);
     }
 
     private function update() : void {
@@ -163,7 +166,7 @@
       $post_data = $this->getDb()->querySingle(self::GET_SQL, 'i', $this->getId());
 
       $this->title = $post_data['title'];
-      $this->numberOfVotes = $post_data['votes'];
+      $this->numberOfVotes = $post_data['vote_count'];
       $this->setAuthorId($post_data['author_id']);
       $this->setContent($post_data['content']);
       $this->setTimeCreated(strtotime($post_data['date_created']));

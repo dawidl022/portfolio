@@ -20,7 +20,6 @@ CREATE TABLE posts (
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
     date_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
         ON UPDATE CURRENT_TIMESTAMP(),
-    votes INT DEFAULT 0,
 
     PRIMARY KEY(id),
     FOREIGN KEY(author_id)
@@ -28,7 +27,14 @@ CREATE TABLE posts (
         ON DELETE SET NULL
 );
 
--- TODO create post_votes 1:1 table, then inner join on posts
+CREATE TABLE votes (
+    post_id INT NOT NULL,
+    vote_count INT DEFAULT 0,
+
+    FOREIGN KEY(post_id)
+        REFERENCES posts(id)
+        ON DELETE CASCADE
+);
 
 
 CREATE TABLE comments (
