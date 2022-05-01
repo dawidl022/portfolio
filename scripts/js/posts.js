@@ -15,6 +15,12 @@
 
   if (location.search === '') {
     history.replaceState({month: 'any'}, '', '/blog')
+  } else {
+    const params = new URLSearchParams(window.location.search);
+    const month = params.get('month');
+
+    history.replaceState({ month }, '', `/blog${window.location.search}`);
+    setDropdownValue(month);
   }
 
   bindDeleteListeners();
@@ -23,9 +29,21 @@
   addEventListener('popstate', e => {
     if (e.state) {
       fetchPosts(e.state.month, false);
-      monthDropdown.value = e.state.month;
+
+      setDropdownValue(e.state.month);
     }
   });
+
+  function setDropdownValue(month) {
+    const validMonths = Array.from(
+      monthDropdown.querySelectorAll('option')).map(op => op.value);
+
+    if (validMonths.includes(month)) {
+      monthDropdown.value = month;
+    } else {
+      monthDropdown.value = '';
+    }
+  }
 
   function fetchPosts(month, pushToHistory) {
     const xhr = new XMLHttpRequest();

@@ -2,6 +2,7 @@
     <form action="/blog.php" method="get" id="blog-filter-form">
       <label for="month-dropdown">Filter by month:</label>
       <select id="month-dropdown" name="month">
+        <option value='' disabled>Select month</option>
         <option value="any">All months</option>
         <?php foreach (PostList::getMonths($db) as $month): ?>
           <option value="<?= $month ?>"
