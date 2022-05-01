@@ -1,17 +1,5 @@
 <?php
-  require_once 'scripts/db-connect-or-die.php';
-  require_once 'classes/models/User.class.php';
-  require_once 'classes/models/Author.class.php';
-  require_once 'classes/PostList.class.php';
-
-  define('EXCERPT_LENGTH', 500);
-  date_default_timezone_set('UTC');
-
-  if (isset($_GET['month']) && $_GET['month'] !== 'any') {
-    $all_posts = PostList::getByMonth($db, $_GET['month']);
-  } else {
-    $all_posts = PostList::getAllOrderedByMostRecent($db);
-  }
+  require_once 'scripts/blog-index-setup.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,45 +36,7 @@
           <?php require_once 'partials/_blog-filters.php'; ?>
 
           <div class="posts">
-            <?php if (count($all_posts) === 0):
-              echo '<em>No posts to display</em>';
-            endif;
-
-            foreach ($all_posts as $post):
-              $author = new User($post->getAuthorId(), $db);
-            ?>
-
-            <article class="post" id="post-<?= $post->getPermalink() ?>">
-              <header>
-                <h2>
-                  <a href="blog/<?= $post->getPermalink() ?>">
-                    <?= $post->getTitle() ?>
-                  </a>
-                </h2>
-
-                <div class="info">
-                  Posted on:
-                  <?= Util::formatTime($post->getTimeCreated()) ?>
-                  by <?= $author->getName() ?>
-
-                  <?php if ($logged_in && $user->isAdmin()): ?>
-                    <form action="/scripts/delete-post.php" method="post"
-                      class="delete-post">
-                      <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
-                      <button type="submit" class="login-btn clear-btn">Delete</button>
-                    </form>
-                  <?php endif; ?>
-                </div>
-              </header>
-
-              <div class="body">
-                <?php $excerpt = preg_replace('/(<br>\n){3,}/' , "<br><br>\n",
-                  strip_tags($post->getContent(), ['<br>', '<a>', '<strong>', '<em>'])) ?>
-                <?= substr($excerpt, 0, EXCERPT_LENGTH) .
-                    (strlen($excerpt) > EXCERPT_LENGTH ? '...' : '') ?>
-              </div>
-            </article>
-            <?php endforeach; ?>
+            <?php require_once 'partials/_posts.php'; ?>
           </div>
         </div>
       </div>

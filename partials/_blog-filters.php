@@ -11,8 +11,8 @@
         <?php endforeach; ?>
       </select>
 
-      <!-- <noscript> -->
+      <noscript>
         <button type="submit" class="login-btn read-btn">Apply filter</button>
-      <!-- </noscript> -->
+      </noscript>
   </form>
 </div>

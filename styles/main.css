@@ -852,6 +852,7 @@ h2 {
   display: flex;
   align-items: baseline;
   gap: 0.2rem;
+  flex-wrap: wrap;
 }
 
 .blog-index .delete-post {
