@@ -19,7 +19,7 @@
       return $query->get_result()->fetch_all(MYSQLI_NUM);
     }
 
-    function querySingle(string $sql, string $param_types, ...$params) : array {
+    function querySingle(string $sql, ?string $param_types, ...$params) : array {
       $result = $this->query(...func_get_args());
 
       if (count($result) === 0) {

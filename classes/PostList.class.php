@@ -12,6 +12,8 @@
       "RIGHT(CONCAT('0', MONTH(date_created)), 2)) AS month_stamp FROM posts " .
       "ORDER BY month_stamp DESC;";
 
+    private const GET_POST_COUNT =
+      "SELECT COUNT(*) AS post_count FROM posts;";
 
     static function getAll(Database $db) : array {
       $raw_posts = $db->queryIndexed(self::GET_ALL_SQL, null);
@@ -54,6 +56,10 @@
       Util::quickSort($posts, true, 'getTimeCreated');
 
       return $posts;
+    }
+
+    static function getPostCount(Database $db) : int {
+      return $db->querySingle(self::GET_POST_COUNT, null)['post_count'];
     }
 
     private static function rawPostsToObjects(Database $db, array $raw_posts) : array {

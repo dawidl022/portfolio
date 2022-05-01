@@ -38,8 +38,7 @@
               <?php $author = new Author($_SESSION['id'], $db); ?>
               <div><em>Your posts: <?= $author->getPostCount() ?></em></div>
               <?php if ($user->isAdmin()): ?>
-                <!-- FIXME -->
-                <div><em>Total number of posts: <?= count($all_posts) ?></em></div>
+                <div><em>Total number of posts: <?= PostList::getPostCount($db) ?></em></div>
               <?php endif; ?>
             </div>
             <a href="add-post" class="login-btn read-btn add-btn">New post</a>
