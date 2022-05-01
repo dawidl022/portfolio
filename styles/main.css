@@ -171,6 +171,10 @@ h2 {
   padding: 0.1rem 1rem;
 }
 
+.blog-index .blog-filters .login-btn {
+  padding: 0.28rem 1rem;
+}
+
 .flash .login-btn {
   border-color: var(--white);
 }
@@ -483,14 +487,15 @@ h2 {
   gap: 0.2rem;
 }
 
-.field input, .field textarea {
+.field input, .field textarea, select {
   padding: 0.4rem 1rem;
   border-radius: 2px;
   transition: outline-color 0.2s ease-out;
   outline: 2px solid transparent;
+  background-color: white;
 }
 
-.field input:focus, .field textarea:focus {
+.field input:focus, .field textarea:focus, select:focus {
   outline-color: var(--cta-color);
 }
 
@@ -852,6 +857,12 @@ h2 {
 .blog-index .delete-post {
   display: inline-block;
   margin-left: auto;
+}
+
+.blog-filters form {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
 }
 
 /* COMMENTS SECTION */
