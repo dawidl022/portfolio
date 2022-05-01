@@ -160,7 +160,7 @@ h2 {
   color: white;
 }
 
-.flash .login-btn, .comment .login-btn {
+.flash .login-btn, .comment .login-btn, .blog-index .post .login-btn {
   margin: 0.1rem;
   padding: 0.1rem 1rem;
 }
@@ -837,6 +837,17 @@ h2 {
 .blog .post-footer .footer-icons {
   display: flex;
   gap: 1rem;
+}
+
+.blog-index .post .info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.blog-index .delete-post {
+  display: inline-block;
+  margin-left: auto;
 }
 
 /* COMMENTS SECTION */

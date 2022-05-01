@@ -13,6 +13,7 @@
 <head>
   <?php require 'partials/_head.php'; ?>
 
+  <script src="/scripts/js/posts.js" defer></script>
   <title>Dawid Lachowicz - Blog</title>
 </head>
 <body>
@@ -59,6 +60,14 @@
                 Posted on:
                 <?= Util::formatTime($post->getTimeCreated()) ?>
                 by <?= $author->getName() ?>
+
+                <?php if ($logged_in && $user->isAdmin()): ?>
+                  <form action="/scripts/delete-post.php" method="post"
+                    class="delete-post">
+                    <input type="hidden" name="post-id" value="<?= $post->getId() ?>">
+                    <button type="submit" class="login-btn clear-btn">Delete</button>
+                  </form>
+                <?php endif; ?>
               </div>
             </header>
 

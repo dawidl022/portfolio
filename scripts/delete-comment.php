@@ -9,11 +9,11 @@
 
   if ($user->isAdmin() || $user->ownsComment($_POST['comment-id'])) {
     Comment::delete($db, $_POST['comment-id']);
-  }
 
-  if (isset($_POST['async'])) {
-    http_response_code(204);
-    exit();
+    if (isset($_POST['async'])) {
+      http_response_code(204);
+      exit();
+    }
   }
 
   if ($_SERVER["HTTP_REFERER"]) {
@@ -22,5 +22,5 @@
     $redirect_to = "/blog";
   }
 
-  header("Location: $redirect_to")
+  header("Location: $redirect_to");
 ?>
