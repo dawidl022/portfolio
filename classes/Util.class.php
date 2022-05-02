@@ -13,6 +13,13 @@
       );
     }
 
+    static function makeExcerpt(string $text, int $maxLength) : string {
+      $excerpt = preg_replace('/(<br>\n){3,}/' , "<br><br>\n",
+        strip_tags($text, ['<br>', '<a>', '<strong>', '<em>']));
+      return substr($excerpt, 0, $maxLength) .
+        (strlen($excerpt) > $maxLength ? '...' : '');
+    }
+
     static function swap(array &$array, int $index1, int $index2) {
       $temp = $array[$index1];
       $array[$index1] = $array[$index2];

@@ -406,7 +406,7 @@ h2 {
   background-color: #fff;
 }
 
-.blog-aside .post h3 a:hover {
+.blog-aside a:not(.read-btn):hover {
   text-decoration: underline;
 }
 
@@ -760,7 +760,7 @@ h2 {
   display: grid;
 }
 
-.blog .post h2 {
+.blog .post h2, .blog-aside .post h3 {
   color: var(--main-color);
 }
 

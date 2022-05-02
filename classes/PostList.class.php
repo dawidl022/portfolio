@@ -7,6 +7,9 @@
     private const GET_BY_MONTH_SQL =
       "SELECT * FROM posts WHERE UNIX_TIMESTAMP(date_created) >= ? AND UNIX_TIMESTAMP(date_created) < ?";
 
+    private const GET_N_MOST_RECENT_SQL =
+      "SELECT * FROM posts ORDER BY date_created DESC LIMIT ?;";
+
     private const GET_MONTHS_SQL =
       "SELECT DISTINCT CONCAT(YEAR(date_created), '-', " .
       "RIGHT(CONCAT('0', MONTH(date_created)), 2)) AS month_stamp FROM posts " .
@@ -56,6 +59,11 @@
       Util::quickSort($posts, true, 'getTimeCreated');
 
       return $posts;
+    }
+
+    static function getNMostRecent(Database $db, int $n) {
+      $raw_posts = $db->queryIndexed(self::GET_N_MOST_RECENT_SQL, 'i', $n);
+      return self::rawPostsToObjects($db, $raw_posts);
     }
 
     static function getPostCount(Database $db) : int {

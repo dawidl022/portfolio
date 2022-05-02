@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php require 'partials/_head.php'; ?>
+  <?php
+    require_once 'scripts/db-connect.php';
+    require 'partials/_head.php';
+  ?>
 
   <title>Dawid Lachowicz - Personal Homepage</title>
   <meta name="description" content="Personal Homepage of Dawid Lachowicz - Computer Science student and Web Developer.
@@ -62,48 +65,38 @@ Check out my projects and work and find out how to reach out to me.">
           </div>
         </section>
 
-        <aside class="aside blog-aside">
-          <h2>Recent blog articles</h2>
+        <?php if ($db !== null): ?>
+          <aside class="aside blog-aside">
+            <h2><a href="/blog">Recent blog articles</a></h2>
 
-          <article class="post">
-            <header>
-              <h3><a href="blog#post2">New homepage released</a></h3>
-              <div class="info">
-                Posted on:
-                <time datetime="2022-03-16">3<sup>rd</sup> March 2022</time>
-              </div>
-            </header>
+            <?php
+              require_once 'classes/PostList.class.php';
+              define('EXCERPT_LENGTH', 400);
+              foreach (PostList::getNMostRecent($db, 2) as $post):
+            ?>
+                <article class="post">
+                  <header>
+                    <h3>
+                      <a href="/blog/<?= $post->getPermalink() ?>">
+                        <?= $post->getTitle() ?>
+                      </a>
+                    </h3>
+                    <div class="info">
+                      Posted on:
+                      <?= Util::formatTime($post->getTimeCreated()) ?>
+                    </div>
+                  </header>
 
-            <p>
-              As part of the Fundamentals of Web Technology module exciting
-              mini-project, the time has come to release a new homepage. On this
-              homepage, you will find a lot of information about what makes me
-              stand out for the crowd. Oh, and I do hope you like the styling,
-              I tried my best :)
-            </p>
-            <a href="blog#post2" class="login-btn read-btn">Read more</a>
-          </article>
+                  <div>
+                    <?= Util::makeExcerpt($post->getContent(), EXCERPT_LENGTH)  ?>
+                  </div>
+                  <a href="/blog/<?= $post->getPermalink() ?>"
+                    class="login-btn read-btn">Read more</a>
+                </article>
+            <?php endforeach; ?>
 
-          <article class="post">
-            <header>
-              <h3><a href="blog#post1">First blog post</a></h3>
-              <div class="info">
-                Posted on:
-                <time datetime="2022-01-28">28<sup>th</sup> January 2022</time>
-              </div>
-            </header>
-
-            <p>
-              Yes, I have decided to start my very own blog. I thought it would
-              be a great idea to try and write about the things I learn to
-              better solidify the concepts in my brain. It will also be a great
-              opportunity to work on my soft (writing) skills, as they are also
-              very very important. The topics I plan to cover...
-            </p>
-            <a href="blog#post1" class="login-btn read-btn">Read more</a>
-          </article>
-        </aside>
-        </div>
+          </aside>
+        <?php endif; ?>
       </div>
     </div>
   </main>

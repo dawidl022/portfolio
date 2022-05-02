@@ -13,7 +13,7 @@ foreach ($all_posts as $post):
 <article class="post" id="post-<?= $post->getPermalink() ?>">
   <header>
     <h2>
-      <a href="blog/<?= $post->getPermalink() ?>">
+      <a href="/blog/<?= $post->getPermalink() ?>">
         <?= $post->getTitle() ?>
       </a>
     </h2>
@@ -34,10 +34,7 @@ foreach ($all_posts as $post):
   </header>
 
   <div class="body">
-    <?php $excerpt = preg_replace('/(<br>\n){3,}/' , "<br><br>\n",
-      strip_tags($post->getContent(), ['<br>', '<a>', '<strong>', '<em>'])) ?>
-    <?= substr($excerpt, 0, EXCERPT_LENGTH) .
-        (strlen($excerpt) > EXCERPT_LENGTH ? '...' : '') ?>
+    <?= Util::makeExcerpt($post->getContent(), EXCERPT_LENGTH)  ?>
   </div>
 </article>
 <?php endforeach; ?>
