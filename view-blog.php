@@ -141,6 +141,13 @@
 
               <button type="submit" class="login-btn read-btn">Add comment</button>
             </form>
+          <?php elseif (!$preview): ?>
+            <div class="panel">
+              <a href="/register" class="login-btn">Sign up</a>
+              or
+              <a href="/login" class="login-btn">Log in</a>
+              to post a comment
+            </div>
           <?php endif; ?>
 
           <?php

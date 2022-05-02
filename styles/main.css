@@ -924,6 +924,21 @@ h2 {
   outline-color: var(--red);
 }
 
+.comments .panel {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.comments .panel .login-btn {
+  text-decoration: none;
+}
+
 /* FOOTER STYLES */
 
 .footer {
