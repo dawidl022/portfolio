@@ -3,7 +3,11 @@
 endif;
 
 foreach ($all_posts as $post):
-  $author = new User($post->getAuthorId(), $db);
+  if ($post->getAuthorId() !== null) {
+    $author = new User($post->getAuthorId(), $db);
+  } else {
+    $author = null;
+  }
 ?>
 
 <article class="post" id="post-<?= $post->getPermalink() ?>">
@@ -17,7 +21,7 @@ foreach ($all_posts as $post):
     <div class="info">
       Posted on:
       <?= Util::formatTime($post->getTimeCreated()) ?>
-      by <?= $author->getName() ?>
+      by <?= $author !== null ? $author->getName() : '(deleted user)' ?>
 
       <?php if ($logged_in && $user->isAdmin()): ?>
         <form action="/scripts/delete-post.php" method="post"

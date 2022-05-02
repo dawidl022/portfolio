@@ -44,7 +44,12 @@
         exit();
       }
 
-      $author = new User($post->getAuthorId(), $db);
+      if ($post->getAuthorId() !== null) {
+        $author = new User($post->getAuthorId(), $db);
+      } else {
+        $author = null;
+      }
+
   }
 
   $comments = $post->getComments();
@@ -79,7 +84,7 @@
             <div class="info">
               Posted on:
               <?= Util::formatTime($post->getTimeCreated()) ?>
-              by <?= $author->getName() ?>
+              by <?= $author !== null ? $author->getName() : '(deleted user)' ?>
             </div>
 
             <?php if ($post->getTimeModified() !== $post->getTimeCreated()): ?>

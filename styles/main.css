@@ -783,7 +783,7 @@ h2 {
 }
 
 .blog p:not(:last-child) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .blog .content .vote-btn {

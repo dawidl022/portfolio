@@ -30,7 +30,7 @@
       return $this->authorId;
     }
 
-    protected function setAuthorId(int $id) {
+    protected function setAuthorId(?int $id) {
       $this->authorId = $id;
     }
 
