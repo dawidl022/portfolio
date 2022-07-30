@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?php require 'partials/_head.php'; ?>
 
   <title>Dawid Lachowicz - Skills</title>
 </head>
+
 <body>
   <?php require 'partials/_header.php'; ?>
 
@@ -20,15 +22,16 @@
 
             <div class="media skill">
               <div class="copy">
-                <h2>Full-Stack Web Development</h2>
+                <h2>Full-Stack Development</h2>
                 <p>
-                  I have devoted the last year to learning full-stack web
+                  I have devoted the last year-and-a-half to learning full-stack
                   development. After having picked up the basics of HTML, CSS
                   and JavaScript, I moved onto in-depth learning of the Ruby
-                  programming language and the Ruby on Rails framework. Along
-                  the way, I have also become familiar with using SCSS for
-                  organising my stylesheets easier. In my current front-end role,
-                  I develop modular web components using the Vue.js framework.
+                  programming language and the Ruby on Rails framework. Currently,
+                  I develop backend services in Go or Kotlin and use React, Vue
+                  and Flutter for the frontend. I am further expanding my skills
+                  by learning about distributed systems, microservies,
+                  Kubernetes and other cloud tools.
                 </p>
               </div>
               <img src="/assets/images/coding.svg" alt="">
@@ -55,8 +58,9 @@
                 <p>
                   Every software developer knows, that their role requires
                   problem solving skills. I too enjoy this activity. For this
-                  reason I enjoy learning algorithms and data structures, as
-                  they give me tools to tackle problems, as well as allowing me
+                  reason I enjoy learning algorithms and data structures,
+                  and solving various coding challenges as they give me tools to
+                  tackle problems faced during development, as well as allowing me
                   to model a real-life problem to something I've encountered
                   before.
                 </p>
@@ -72,8 +76,8 @@
                   situations, which require learning new things. I love a good
                   challenge. I am constantly strive to expanding my knowledge
                   skills. The things I am currently learning include: software
-                  design, programming language and frameworks such as Java and
-                  Ruby on Rails, as well as the soft skills e.g. mastering the
+                  design, programming languages and tools such as Go, Kotlin and
+                  Kubernetes, as well as the soft skills e.g. mastering the
                   art of communication.
                 </p>
               </div>
@@ -88,4 +92,5 @@
 
   <?php require 'partials/_footer.html'; ?>
 </body>
+
 </html>
