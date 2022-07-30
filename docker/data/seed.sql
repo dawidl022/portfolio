@@ -1,3 +1,5 @@
+UPDATE users SET admin = 1 WHERE id = 1;
+
 INSERT INTO posts VALUES(
     1, 1, "First blog post", "first-blog-post",
     "<p>

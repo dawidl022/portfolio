@@ -15,8 +15,7 @@ services:
       DB_NAME: portfolio
       ENVIRONMENT: DEV
   database:
-    image: mysql:8.0.30
+    build:
+      dockerfile: mysql.Dockerfile
+      context: .
     restart: always
-    environment:
-      MYSQL_DATABASE: portfolio
-      MYSQL_ROOT_PASSWORD: password
