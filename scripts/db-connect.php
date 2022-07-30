@@ -4,7 +4,11 @@
   require_once 'classes/Database.class.php';
 
   function connect() : ?Database {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    try {
+      $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    } catch (Exception $e) {
+      return null;
+    }
 
     if ($conn->connect_error) {
       // caller is responsible for checking the returned value
@@ -15,4 +19,3 @@
   }
 
   $db = connect();
-?>
