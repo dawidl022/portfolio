@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?php require 'partials/_head.php'; ?>
 
   <title>Dawid Lachowicz - Education</title>
 </head>
+
 <body>
   <?php require 'partials/_header.php'; ?>
 
@@ -24,17 +26,16 @@
                   Enrolled on the Computer Science course since 2021.
                 </p>
                 <p>
-                  Earned 60
+                  Earned 120 (60 ECTS)
                   credits to date and on track for a first.
                 </p>
               </div>
             </div>
             <a href="https://www.qmul.ac.uk/" target="_blank" rel="noopener">
-              <img src="/assets/images/qmul.png" alt="Queen Mary University of London logo"
-                class="rounded-logo">
+              <img src="/assets/images/qmul.png" alt="Queen Mary University of London logo" class="rounded-logo">
             </a>
           </div>
-          <section class="subjects">
+          <section class="education-section">
             <h3>Subjects taken:</h3>
             <ul class="bulleted-list">
               <li>Procedural Programming</li>
@@ -47,7 +48,15 @@
               <li>Automata and Formal Languages</li>
             </ul>
           </section>
-
+          <section class="education-section">
+            <h3>Awards:</h3>
+            <ul class="bulleted-list">
+              <li>
+                <b>2021/22 Electronic Engineering and Computer Science First Year Prize</b><br>
+                Awarded for Outstanding Academic Achievement
+              </li>
+            </ul>
+          </section>
         </div>
       </div>
     </section>
@@ -55,4 +64,5 @@
 
   <?php require 'partials/_footer.html'; ?>
 </body>
+
 </html>
