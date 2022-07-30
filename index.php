@@ -21,7 +21,7 @@ Check out my projects and work and find out how to reach out to me.">
     <section class="hero">
       <div class="title">
         <h1>Dawid Lachowicz</h1>
-        <p class="subtitle">Computer Science student & Web Developer</p>
+        <p class="subtitle">Computer Science student & Full-Stack Developer</p>
       </div>
 
       <div class="socials">
