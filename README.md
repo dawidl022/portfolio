@@ -1,4 +1,4 @@
-# Personal Portfolio
+# Personal Website/Portfolio
 
 [Live Website](https://dawidlachowicz.com/)
 
