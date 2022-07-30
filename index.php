@@ -1,12 +1,13 @@
 <?php
-  require_once 'scripts/load-user.php';
+require_once 'scripts/load-user.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?php
-    require_once 'scripts/db-connect.php';
-    require 'partials/_head.php';
+  require_once 'scripts/db-connect.php';
+  require 'partials/_head.php';
   ?>
 
   <title>Dawid Lachowicz - Personal Homepage</title>
@@ -14,6 +15,7 @@
 Check out my projects and work and find out how to reach out to me.">
 
 </head>
+
 <body>
   <?php require 'partials/_header.php'; ?>
 
@@ -25,12 +27,10 @@ Check out my projects and work and find out how to reach out to me.">
       </div>
 
       <div class="socials">
-        <a href="https://github.com/dawidl022" class="social-icon"
-          target="_blank" rel="noopener">
+        <a href="https://github.com/dawidl022" class="social-icon" target="_blank" rel="noopener">
           <img src="/assets/icons/github.svg" alt="GitHub">
         </a>
-        <a href="https://www.linkedin.com/in/dawid-k-lachowicz/"
-          class="social-icon" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/dawid-k-lachowicz/" class="social-icon" target="_blank" rel="noopener">
           <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
         </a>
         <a href="mailto:dawid.k.lachowicz@gmail.com" class="social-icon">
@@ -41,8 +41,7 @@ Check out my projects and work and find out how to reach out to me.">
       <a class="scroll-prompt" href="#about-me">
         <div>Learn more about what I do</div>
 
-        <img src="/assets/images/chevron.svg" alt="scroll down arrow"
-          width="150" height="75">
+        <img src="/assets/images/chevron.svg" alt="scroll down arrow" width="150" height="75">
       </a>
     </section>
 
@@ -50,8 +49,8 @@ Check out my projects and work and find out how to reach out to me.">
       <img src="/assets/icons/circuit.svg" alt="" class="circuit-icon">
 
       <div class="container">
-        <section class="content">
-          <div class="media">
+        <div class="content">
+          <section class="media">
             <div class="copy">
               <h2>About me</h2>
               <p class="intro">
@@ -65,37 +64,57 @@ Check out my projects and work and find out how to reach out to me.">
               </p>
             </div>
             <img src="/assets/images/dawid.png" alt="Photo of Dawid Lachowicz">
-          </div>
-        </section>
+          </section>
 
-        <?php if ($db !== null): ?>
+          <?php
+          require_once 'scripts/get-tech-stack.php';
+          $techs = getTechStack();
+          if (count($techs) > 0) :
+          ?>
+            <section>
+              <h3>Languages and Technologies</h3>
+
+              <div class="tech-stack">
+                <?php foreach ($techs as $tech) : ?>
+                  <a href="<?= $tech->getUrl() ?>" target="_blank" rel="noopener">
+                    <img src="<?= $tech->getImgSrc() ?>" alt="<?= $tech->getName() ?>"
+                      title="<?= $tech->getName() ?>">
+                  </a>
+                <?php endforeach; ?>
+              </div>
+
+              <p>and many more in the future!</p>
+            </section>
+          <?php endif; ?>
+        </div>
+
+        <?php if ($db !== null) : ?>
           <aside class="aside blog-aside">
             <h2><a href="/blog">Recent blog articles</a></h2>
 
             <?php
-              require_once 'classes/PostList.class.php';
-              define('EXCERPT_LENGTH', 400);
-              foreach (PostList::getNMostRecent($db, 2) as $post):
+            require_once 'classes/PostList.class.php';
+            define('EXCERPT_LENGTH', 400);
+            foreach (PostList::getNMostRecent($db, 2) as $post) :
             ?>
-                <article class="post">
-                  <header>
-                    <h3>
-                      <a href="/blog/<?= $post->getPermalink() ?>">
-                        <?= $post->getTitle() ?>
-                      </a>
-                    </h3>
-                    <div class="info">
-                      Posted on:
-                      <?= Util::formatTime($post->getTimeCreated()) ?>
-                    </div>
-                  </header>
-
-                  <div>
-                    <?= Util::makeExcerpt($post->getContent(), EXCERPT_LENGTH)  ?>
+              <article class="post">
+                <header>
+                  <h3>
+                    <a href="/blog/<?= $post->getPermalink() ?>">
+                      <?= $post->getTitle() ?>
+                    </a>
+                  </h3>
+                  <div class="info">
+                    Posted on:
+                    <?= Util::formatTime($post->getTimeCreated()) ?>
                   </div>
-                  <a href="/blog/<?= $post->getPermalink() ?>"
-                    class="login-btn read-btn">Read more</a>
-                </article>
+                </header>
+
+                <div>
+                  <?= Util::makeExcerpt($post->getContent(), EXCERPT_LENGTH)  ?>
+                </div>
+                <a href="/blog/<?= $post->getPermalink() ?>" class="login-btn read-btn">Read more</a>
+              </article>
             <?php endforeach; ?>
 
           </aside>
@@ -106,4 +125,5 @@ Check out my projects and work and find out how to reach out to me.">
 
   <?php require 'partials/_footer.html'; ?>
 </body>
+
 </html>
