@@ -667,6 +667,10 @@ select:focus {
   font-weight: 300;
 }
 
+.portfolio .icon {
+  font-size: 1.2em;
+}
+
 .project .icon {
   font-size: 1.6em;
 }

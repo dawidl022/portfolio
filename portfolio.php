@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?php require 'partials/_head.php'; ?>
 
   <link rel="stylesheet" href="/assets/fonts/github-icon/css/github.css">
   <title>Dawid Lachowicz - Portfolio</title>
 </head>
+
 <body>
   <?php require 'partials/_header.php'; ?>
 
@@ -56,7 +58,8 @@
               <a href="https://sass-lang.com/" target="_blank" rel="noopener">
                 <img src="/assets/icons/sass.svg" alt="SCSS">
               </a>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank" rel="noopener">
                 <img src="/assets/devicons/javascript-original.svg" alt="JavaScript">
               </a>
               <a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">
@@ -145,10 +148,18 @@
             </div>
           </article>
         </div>
+
+        <div>
+          <a href="https://github.com/dawidl022?tab=repositories" class="login-btn">
+            View all public projects on GitHub
+            <i class="icon-github-circled icon"></i>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <?php require 'partials/_footer.html'; ?>
 </body>
+
 </html>
