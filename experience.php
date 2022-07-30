@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<?php require 'partials/_head.php'; ?>
+  <?php require 'partials/_head.php'; ?>
 
   <title>Dawid Lachowicz - Professional Experience</title>
 </head>
+
 <body>
   <?php require 'partials/_header.php'; ?>
 
@@ -15,6 +17,34 @@
       <div class="container">
         <div class="content">
           <h1>Professional Experience</h1>
+
+          <article class="media">
+            <div class="copy">
+              <header>
+                <h2>Atos - <em>Full Stack Developer</em></h2>
+                <em><time datetime="2022-04">April 2022</time> - present</em>
+              </header>
+              <div class="text">
+                <ul class="bulleted-list">
+                  <li>
+                    Working with a wide range of technologies including Go,
+                    Kotlin, GraphQL, Flutter, React and Docker, to best suit
+                    the needs of the client.
+                  </li>
+                  <li>
+                    Designing and implementing APIs, microservices and frontends.
+                  </li>
+                  <li>
+                    Engaging with the client to understand requirements and plan
+                    tasks.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <a href="https://atos.net/" target="_blank" rel="noopener">
+              <img src="/assets/images/logos/atos.svg" alt="Atos" class="rounded-logo">
+            </a>
+          </article>
 
           <article class="media">
             <div class="copy">
@@ -45,32 +75,7 @@
               </div>
             </div>
             <a href="https://www.maturait.pl/" target="_blank" rel="noopener">
-              <img src="/assets/images/logos/maturait.svg" alt="MaturaIT"
-                class="rounded-logo">
-            </a>
-          </article>
-
-          <article class="media">
-            <div class="copy">
-              <header>
-                <h2>All Bar One Sutton - <em>Back of House Team Member</em></h2>
-                <em><time datetime="2021-06">June 2021</time> -
-                  <time datetime="2021-09">September 2021</time></em>
-              </header>
-              <div class="text">
-                <ul class="bulleted-list">
-                  <li>
-                    Prepared dishes to the highest possible standards.
-                  </li>
-                  <li>
-                    Ensured the kitchen was clean and hygienic.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <a href="https://www.allbarone.co.uk/" target="_blank" rel="noopener">
-              <img src="/assets/images/logos/abo.png" alt="All Bar One"
-                class="rounded-logo">
+              <img src="/assets/images/logos/maturait.svg" alt="MaturaIT" class="rounded-logo">
             </a>
           </article>
 
@@ -98,29 +103,7 @@
               </div>
             </div>
             <a href="https://www.salsafever.pl/" target="_blank" rel="noopener">
-              <img src="/assets/images/logos/sf.jpg" alt="Salsa Fever Wrocław"
-                class="rounded-logo">
-            </a>
-          </article>
-
-          <article class="media">
-            <div class="copy">
-              <header>
-                <h2>McDonald's UK - <em>Crew Member</em></h2>
-                <em><time datetime="2018-07">July 2018</time> -
-                  <time datetime="2018-08">August 2018</time></em>
-              </header>
-              <div class="text">
-                <ul class="bulleted-list">
-                  <li>
-                    Served customers and ran the till.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <a href="https://www.mcdonalds.com/gb/en-gb.html" target="_blank" rel="noopener">
-              <img src="/assets/images/logos/mcdonalds.svg" alt="McDonald's"
-                class="rounded-logo">
+              <img src="/assets/images/logos/sf.jpg" alt="Salsa Fever Wrocław" class="rounded-logo">
             </a>
           </article>
 
@@ -131,4 +114,5 @@
 
   <?php require 'partials/_footer.html'; ?>
 </body>
+
 </html>

@@ -725,6 +725,10 @@ select:focus {
   justify-self: center;
 }
 
+.experience .text {
+  max-width: 700px;
+}
+
 /* BLOG INDEX STYLES */
 
 .blog .content {
