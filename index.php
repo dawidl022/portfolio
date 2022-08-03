@@ -6,12 +6,14 @@ require_once 'scripts/load-user.php';
 
 <head>
   <?php
-  require_once 'scripts/db-connect.php';
-  require 'partials/_head.php';
+    require_once 'scripts/db-connect.php';
+    require 'partials/_head.php';
+
+    define('HEADLINE', 'Computer Science student & Full-Stack Developer');
   ?>
 
   <title>Dawid Lachowicz - Personal Homepage</title>
-  <meta name="description" content="Personal Homepage of Dawid Lachowicz - Computer Science student and Web Developer.
+  <meta name="description" content="Dawid Lachowicz - <?= HEADLINE ?>.
 Check out my projects and work and find out how to reach out to me.">
 
 </head>
@@ -23,7 +25,7 @@ Check out my projects and work and find out how to reach out to me.">
     <section class="hero">
       <div class="title">
         <h1>Dawid Lachowicz</h1>
-        <p class="subtitle">Computer Science student & Full-Stack Developer</p>
+        <p class="subtitle"><?= HEADLINE ?></p>
       </div>
 
       <div class="socials">
