@@ -58,7 +58,7 @@ Check out my projects and work and find out how to reach out to me.">
                 take on new and exciting challenges. An open-minded individual
                 who likes communicating and working with others in a team.
                 Passionate about Software Engineering, Web Development,
-                Blockchain and Algorithms. I am very eager to learn new things
+                DevOps and Algorithms. I am very eager to learn new things
                 and I love applying that newfound knowledge, especially in
                 projects!
               </p>
