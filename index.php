@@ -14,7 +14,7 @@ require_once 'scripts/load-user.php';
 
   <title>Dawid Lachowicz - Personal Homepage</title>
   <meta name="description" content="Dawid Lachowicz - <?= HEADLINE ?>.
-Check out my projects and work and find out how to reach out to me.">
+ Check out my projects and work and find out how to reach out to me.">
 
 </head>
 
