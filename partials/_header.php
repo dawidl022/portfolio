@@ -22,16 +22,12 @@
           <li><a href="/experience">Experience</a></li>
           <li><a href="/portfolio">Portfolio</a></li>
           <li><a href="/contact">Contact</a></li>
-          <li><a href="/blog">Blog</a></li>
         </ul>
       </nav>
       <div class="panel">
         <?php if ($logged_in): ?>
           <span><?= $user->getFirstName() ?></span>
           <a href="/logout" class="login-btn">Log out</a>
-        <?php else: ?>
-          <a href="/register" class="login-btn">Sign up</a>
-          <a href="/login" class="login-btn">Log in</a>
         <?php endif; ?>
       </div>
     </div>
